@@ -16,8 +16,8 @@ class Welcome extends Component {
                 <div className="container">
                     <div className="text-center welcome-message">
                         <h1 className="display-3">{this.language.appName}</h1>
-                        <p className="lead">Team 12: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen.</p>
-                        <button className="btn btn-success" onClick={this.props.openApp}>Open App <i className="fa fa-arrow-right" aria-hidden="true"></i></button> 
+                        <p className="lead">{this.language.team}</p>
+                        <button className="btn btn-success" onClick={this.props.openApp}>{this.language.openApp} <i className="fa fa-arrow-right" aria-hidden="true"></i></button> 
                     </div>
                 </div>
             </div>
