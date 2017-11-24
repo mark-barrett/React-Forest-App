@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      appIsOpen: true
+      appIsOpen: false
     }
 
     // Bind the openApp function to have this

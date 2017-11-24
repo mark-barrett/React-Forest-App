@@ -13,9 +13,9 @@ class TopNav extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{ padding: 2 }}>
+                <nav className="navbar navbar-expand-lg navbar-light bg-success" style={{ padding: 2 }}>
                     <div className="container">
-                        <a className="navbar-brand" href="#">{this.language.appName}</a>
+                        <a className="navbar-brand text-white" href="#">{this.language.appName}</a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>

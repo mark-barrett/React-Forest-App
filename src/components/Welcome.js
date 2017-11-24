@@ -12,7 +12,7 @@ class Welcome extends Component {
 
     render () {
         return (
-            <div>
+            <div className="tree-background">
                 <div className="container">
                     <div className="text-center welcome-message">
                         <h1 className="display-3">{this.language.appName}</h1>
