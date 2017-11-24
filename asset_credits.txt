@@ -1,2 +1,18 @@
 Image for Trees:
 https://i.pinimg.com/originals/3b/82/b8/3b82b8fd0fe6387b7060b8d962ab1078.jpg
+
+
+{this.props.language.scenarioCollection}
+                        <div className="form-group">
+                            <select className="form-control" id="exampleFormControlSelect1">
+                                <option>I don't know</option>
+                            </select>
+                        </div>
+
+                        <div className="list-group">
+                            <button type="button" className="list-group-item list-group-item-action active">
+                                Scenario 1
+                            </button>
+                            <button type="button" className="list-group-item list-group-item-action">Scenario 2</button>
+                            <button type="button" className="list-group-item list-group-item-action">Scenario 3</button>
+                        </div>
