@@ -10,7 +10,8 @@ class ScenarioSelector extends Component {
         // Create state to hold all of the information needed
         this.state = {
             regionLevels: [],
-            regions: []
+            regions: [],
+            displayRegions: false
         }
 
         this.getRegions = this.getRegions.bind(this);
@@ -36,36 +37,62 @@ class ScenarioSelector extends Component {
                 return <option key={element.id} value={element.id}>{element.name}</option>;
             })})
         });
+
+        this.setState({displayRegions: true});
     }
 
     render () {
-        return (
-            <div>
-                {this.regions}
-                <div className="card square-corners">
-                    <div className="card-header text-center">
-                        {this.props.language.scenarioSelector}
-                    </div>
-                    <div className="card-body">
-                        {this.props.language.regionLevel}
-                        <div className="form-group">
-                            <select className="form-control" id="regionLevel" onChange={this.getRegions} value={this.state.value}>
-                                <option>{this.props.language.chooseRegionLevel}</option>
-                                {this.state.regionLevels}
-                            </select>
-                        </div>
 
-                        {this.props.language.region}
-                        <div className="form-group">
-                            <select className="form-control" id="exampleFormControlSelect1">
-                                {this.state.regions}
-                            </select>
+        if(this.state.displayRegions === false) {
+            return (
+                <div>
+                    {this.regions}
+                    <div className="card square-corners">
+                        <div className="card-header text-center">
+                            {this.props.language.scenarioSelector}
                         </div>
-
+                        <div className="card-body">
+                            {this.props.language.regionLevel}
+                            <div className="form-group">
+                                <select className="form-control" id="regionLevel" onChange={this.getRegions} value={this.state.value}>
+                                    <option>{this.props.language.chooseRegionLevel}</option>
+                                    {this.state.regionLevels}
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        }
+        else {
+            return (
+                <div>
+                    {this.regions}
+                    <div className="card square-corners">
+                        <div className="card-header text-center">
+                            {this.props.language.scenarioSelector}
+                        </div>
+                        <div className="card-body">
+                            {this.props.language.regionLevel}
+                            <div className="form-group">
+                                <select className="form-control" id="regionLevel" onChange={this.getRegions} value={this.state.value}>
+                                    <option>{this.props.language.chooseRegionLevel}</option>
+                                    {this.state.regionLevels}
+                                </select>
+                            </div>
+
+                            {this.props.language.region}
+                            <div className="form-group">
+                                <select className="form-control" id="regions">
+                                    {this.state.regions}
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            )
+        }
     }
 }
 
