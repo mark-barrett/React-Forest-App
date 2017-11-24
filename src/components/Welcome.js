@@ -16,6 +16,7 @@ class Welcome extends Component {
                 <div className="container">
                     <div className="text-center welcome-message">
                         <h1 className="display-3">{this.language.appName}</h1>
+                        <hr/>
                         <p className="lead">{this.language.team}</p>
                         <button className="btn btn-success" onClick={this.props.openApp}>{this.language.openApp} <i className="fa fa-arrow-right" aria-hidden="true"></i></button> 
                     </div>

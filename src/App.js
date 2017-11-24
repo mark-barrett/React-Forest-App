@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Welcome from './components/Welcome';
+import Home from './components/Home';
 
 class App extends Component {
 
@@ -9,7 +10,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      appIsOpen: false
+      appIsOpen: true
     }
 
     // Bind the openApp function to have this
@@ -25,7 +26,7 @@ class App extends Component {
     if(this.state.appIsOpen) {
       return (
         <div>
-          <h1>App is Open</h1>
+          <Home />
         </div>
       );
     }
