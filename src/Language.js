@@ -9,7 +9,12 @@ class Language {
                 appName: "Forest Indicator App",
                 team: "Team 12: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen & Joshua O'Neill",
                 openApp: "Open App",
-                scenarioSelector: "Scenario Selector"
+                scenarioSelector: "Scenario Selector",
+                regionLevel: "Region Level",
+                region: "Region",
+                scenarioCollection: "Scenario Collection",
+                scenarios: "Scenarios",
+                chooseRegionLevel: "Choose region level"
             }
         }
         // If Finnish is chosen when Languaeg is created populate with English
@@ -18,7 +23,12 @@ class Language {
                 appName: "Metsämittari Sovellus",
                 team: "Tiimi: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen & Joshua O'Neill",
                 openApp: "Avaa sovellus",
-                scenarioSelector: "Skenaarioiden Valinta"
+                scenarioSelector: "Skenaarioiden Valinta",
+                regionLevel: "Aluetaso",
+                region: "Alue",
+                scenarioCollection: "Skenaariokokoelma",
+                scenarios: "Skenaariot",
+                chooseRegionLevel: "Valitse aluetaso"
             }
         }
 
