@@ -5,14 +5,15 @@ import TopNav from './TopNav';
 import ScenarioSelector from './ScenarioSelector';
 
 class Home extends Component {
+
     render () {
         return (
             <div>
-                <TopNav />  
+                <TopNav language={this.props.language}/>  
 
                 <div class="row">
                     <div class="col-md-4">
-                        <ScenarioSelector />
+                        <ScenarioSelector language={this.props.language}/>
                     </div>
 
                     <div class="col-md-8">
