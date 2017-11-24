@@ -1,20 +1,42 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Welcome from './components/Welcome';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      appIsOpen: false
+    }
+
+    // Bind the openApp function to have this
+    this.openApp = this.openApp.bind(this);
+  }
+
+  openApp() {
+    this.setState({appIsOpen: true})
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+    // If the app is open the render the main app component
+    if(this.state.appIsOpen) {
+      return (
+        <div>
+          <h1>App is Open</h1>
+        </div>
+      );
+    }
+    // If not then render the welcome component
+    else {
+      return (
+        <div>
+          <Welcome openApp={this.openApp} />
+        </div>
+      );
+    }
   }
 }
 
