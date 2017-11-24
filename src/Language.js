@@ -5,20 +5,45 @@ class Language {
         let phrases = {}
         // If English is chosen when Language object is created then populate with English
         if (language === "English") {
+
             phrases = {
                 appName: "Forest Indicator App",
                 team: "Team 12: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen & Joshua O'Neill",
                 openApp: "Open App",
-                scenarioSelector: "Scenario Selector"
+                scenarioSelector: "Scenario Selector",
+                regionLevel: "Region level",
+                region: "Region",
+                scenarioCollection: "Scenario collection",
+                scenarios: "Scenarios",
+                timeWindow: "Time window",
+                indicatorChooser: "Indicator chooser",
+                timberProduction: "Timber production",
+                gatherProducts: "Gather products",
+                diversity: "Diversity",
+                coal: "Coal",
+                others: "Others"
             }
         }
         // If Finnish is chosen when Languaeg is created populate with English
         else if (language === "Finnish") {
+            //If Finnish is chosen Melatupa request should be something like this
+            //curl -X GET --header 'Accept: application/json' --header 'Accept-Language: fi' 'http://melatupa.azurewebsites.net/regionLevels'
             phrases = {
                 appName: "Metsämittari Sovellus",
                 team: "Tiimi: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen & Joshua O'Neill",
                 openApp: "Avaa sovellus",
-                scenarioSelector: "Skenaarioiden Valinta"
+                scenarioSelector: "Skenaarioiden Valinta",
+                regionLevel: "Aluetaso",
+                region: "Alue",
+                scenarioCollection: "Skenaariokokoelma",
+                scenarios: "Skenaariot",
+                timeWindow: "Ajankohta",
+                indicatorChooser: "Indikaattorien valinta",
+                timberProduction: "Puuntuotanto",
+                gatherProducts: "Keruutuotteet",
+                diversity: "Monimuotoisuus",
+                coal: "Hiili",
+                others: "Muut"
             }
         }
 
