@@ -1,6 +1,3 @@
-import React, { Component}  from 'react';
-import axios, { Component } from 'axios';
-
 class Language {
 
     constructor(language) {
