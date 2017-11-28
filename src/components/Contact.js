@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import language from '../Language';
 
 class Contact extends Component {
     render () {

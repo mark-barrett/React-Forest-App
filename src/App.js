@@ -12,7 +12,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      appIsOpen: true
+      appIsOpen: true,
+      appOpenID: 0
     }
 
     // Bind the openApp function to have this
@@ -23,12 +24,17 @@ class App extends Component {
   }
 
   openApp() {
-    this.setState({appIsOpen: true})
+    if(this.state.appOpenID === 0){
+      this.setState({appOpenID: 1})
+    }
+    else {
+      this.setState({appOpenID: 2})
+    }
   }
 
   render() {
     // If the app is open the render the main app component
-    if(this.state.appIsOpen) {
+    if(this.state.appOpenID === 1) {
       return (
         <div>
           <Home language={this.language}/>
@@ -36,10 +42,17 @@ class App extends Component {
       );
     }
     // If not then render the welcome component
-    else {
+    else if(this.state.appOpenID === 0) {
       return (
         <div>
           <Welcome language={this.language} openApp={this.openApp} />
+        </div>
+      );
+    }
+    else if(this.state.appOpenID === 2) {
+      return (
+        <div>
+          <Contact language={this.language} openApp={this.openApp} />
         </div>
       );
     }
