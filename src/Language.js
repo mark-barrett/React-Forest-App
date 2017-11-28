@@ -17,7 +17,7 @@ class Language {
                 chooseRegionLevel: "Choose region level"
             }
         }
-        // If Finnish is chosen when Languaeg is created populate with English
+        // If Finnish is chosen when Language is created populate with English
         else if (language === "Finnish") {
             phrases = {
                 appName: "Metsämittari Sovellus",
