@@ -1,2 +1,3 @@
 # React-Forest-App
-This is a React app used for Forest Indication.  hj
+![alt text](https://i.imgur.com/VxSdLfx.png "Forest App")
+More information coming soon.

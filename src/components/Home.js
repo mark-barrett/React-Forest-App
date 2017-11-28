@@ -9,16 +9,16 @@ class Home extends Component {
     render () {
         return (
             <div>
-                <TopNav language={this.props.language}/>  
+                <TopNav language={this.props.language} />
 
-                <div class="row">
-                    <div class="col-md-4">
-                        <ScenarioSelector language={this.props.language}/>
+                <div className="row">
+                    <div className="col-md-4">
+                        <ScenarioSelector language={this.props.language} />
                     </div>
 
-                    <div class="col-md-8">
+                    <div className="col-md-8">
                     </div>
-                </div> 
+                </div>
             </div>
         )
     }
