@@ -1,3 +1,6 @@
+import React, { Component}  from 'react';
+import axios, { Component } from 'axios';
+
 class Language {
 
     constructor(language) {
@@ -26,8 +29,6 @@ class Language {
         }
         // If Finnish is chosen when Languaeg is created populate with English
         else if (language === "Finnish") {
-            //If Finnish is chosen Melatupa request should be something like this
-            //curl -X GET --header 'Accept: application/json' --header 'Accept-Language: fi' 'http://melatupa.azurewebsites.net/regionLevels'
             phrases = {
                 appName: "Metsämittari Sovellus",
                 team: "Tiimi: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen & Joshua O'Neill",
