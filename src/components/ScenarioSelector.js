@@ -231,7 +231,7 @@ class ScenarioSelector extends Component {
                                     {this.state.scenarioCollections}
                                 </select>
                             </div>
-                            <Scenarios scenarioRegion={this.state.scenarioRegionSelection} />
+                            <Scenarios language={this.props.language} scenarioRegion={this.state.scenarioRegionSelection} />
                         </div>
                     </div>
                 </div>
