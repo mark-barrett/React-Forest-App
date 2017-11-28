@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import language from '../Language';
 import regions from '../data/Regions';
+import Scenarios from '../components/Scenarios';
 
 class ScenarioSelector extends Component {
 
@@ -13,11 +13,14 @@ class ScenarioSelector extends Component {
             regions: [],
             scenarioCollections: [],
             displayRegions: false,
-            displayScenarioCollections: false
+            displayScenarioCollections: false,
+            displayScenarios: false,
+            scenarioRegionSelection: ""
         }
 
         this.getRegions = this.getRegions.bind(this);
         this.getScenarioCollections = this.getScenarioCollections.bind(this);
+        this.displayScenarios = this.displayScenarios.bind(this);
     }
 
     componentDidMount() {
@@ -34,6 +37,8 @@ class ScenarioSelector extends Component {
     getRegions(event) {
         // If the choose region level selection is chosen
         if (event.target.value != this.props.language.chooseRegionLevel) {
+
+            this.setState({ displayScenarioCollections: false });
 
             let regionLevelID = event.target.value;
 
@@ -67,7 +72,6 @@ class ScenarioSelector extends Component {
         else {
             this.setState({ displayRegions: false });
             this.setState({ displayScenarioCollections: false });
-            console.log(this.state.scenarioCollections);
         }
     
     }
@@ -82,7 +86,8 @@ class ScenarioSelector extends Component {
             this.state.scenarioCollections.map(result => {
                 if(result.id == regionID) {
                     result.scenarioCollections.map(result => {
-                        filteredScenarios.push(<option key={result.id} value={result.id}>{result.name}</option>)
+                        // Put the scenarioID and regionID in split with a dash
+                        filteredScenarios.push(<option key={result.id} value={result.id+"-"+regionID}>{result.name}</option>)
                     })
                 }
             });
@@ -91,10 +96,17 @@ class ScenarioSelector extends Component {
             this.setState({displayScenarioCollections: true});
         }
         else {
+            this.setState({ displayScenarios: false });
             this.setState({scenarioCollections: []});
             this.setState({displayScenarioCollections: false});
         }
 
+    }
+
+    displayScenarios(event) {
+        // Set the scenario collection id to pass into the scenarios component
+        this.setState({ scenarioRegionSelection: event.target.value});
+        this.setState({displayScenarios: true});
     }
 
     render () {
@@ -149,7 +161,7 @@ class ScenarioSelector extends Component {
                 </div>
             )
         }
-        if (this.state.displayScenarioCollections === true) {
+        if (this.state.displayScenarioCollections === true && !this.state.displayScenarios) {
             return (
                 <div>
                     {this.regions}
@@ -176,11 +188,50 @@ class ScenarioSelector extends Component {
 
                             {this.props.language.scenarioCollection}
                             <div className="form-group">
-                                <select className="form-control" id="scenarioCollections" value={this.state.value}>
+                                <select className="form-control" id="scenarioCollections" onChange={this.displayScenarios} value={this.state.value}>
                                 <option>{this.props.language.chooseScenarioCollection}</option>
                                 {this.state.scenarioCollections}
                                 </select>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+
+        if (this.state.displayScenarioCollections === true && this.state.displayScenarios) {
+            return (
+                <div>
+                    {this.regions}
+                    <div className="card square-corners">
+                        <div className="card-header text-center">
+                            {this.props.language.scenarioSelector}
+                        </div>
+                        <div className="card-body">
+                            {this.props.language.regionLevel}
+                            <div className="form-group">
+                                <select className="form-control" id="regionLevel" onChange={this.getRegions} value={this.state.value}>
+                                    <option>{this.props.language.chooseRegionLevel}</option>
+                                    {this.state.regionLevels}
+                                </select>
+                            </div>
+
+                            {this.props.language.region}
+                            <div className="form-group">
+                                <select className="form-control" id="regions" onChange={this.getScenarioCollections} value={this.state.value}>
+                                    <option>{this.props.language.chooseRegion}</option>
+                                    {this.state.regions}
+                                </select>
+                            </div>
+
+                            {this.props.language.scenarioCollection}
+                            <div className="form-group">
+                                <select className="form-control" id="scenarioCollections" onChange={this.displayScenarios} value={this.state.value}>
+                                    <option>{this.props.language.chooseScenarioCollection}</option>
+                                    {this.state.scenarioCollections}
+                                </select>
+                            </div>
+                            <Scenarios scenarioRegion={this.state.scenarioRegionSelection} />
                         </div>
                     </div>
                 </div>
