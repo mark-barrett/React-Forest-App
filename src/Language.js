@@ -19,7 +19,7 @@ class Language {
                 chooseScenarioCollection: "Choose scenario collection"
             }
         }
-        // If Finnish is chosen when Languaeg is created populate with English
+        // If Finnish is chosen when Language is created populate with English
         else if (language === "Finnish") {
             phrases = {
                 appName: "Metsämittari Sovellus",
