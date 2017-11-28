@@ -32,48 +32,68 @@ class ScenarioSelector extends Component {
 
     // Get regions method to get the list of regions
     getRegions(event) {
-        let regionLevelID = event.target.value;
-        
-        // Now that we have the value of what was selected, make a call for the regions.
-        regions.getRegions(regionLevelID).then(result => {
+        // If the choose region level selection is chosen
+        if (event.target.value != this.props.language.chooseRegionLevel) {
 
-            result.map(element => {
+            let regionLevelID = event.target.value;
 
-                // Go through each region and add its id and the scenarios collections to the list
-                this.setState({scenarioCollections: result.map(element => {
-                    return {
-                        'id': element.id,
-                        'scenarioCollections': element.scenarioCollections.map(collection => {
-                            return collection;
+            // Now that we have the value of what was selected, make a call for the regions.
+            regions.getRegions(regionLevelID).then(result => {
+
+                result.map(element => {
+
+                    // Go through each region and add its id and the scenarios collections to the list
+                    this.setState({
+                        scenarioCollections: result.map(element => {
+                            return {
+                                'id': element.id,
+                                'scenarioCollections': element.scenarioCollections.map(collection => {
+                                    return collection;
+                                })
+                            }
                         })
-                    }
-                })});
-            })
+                    });
+                })
 
-            this.setState({regions: result.map(element => {
-                // We need to add each regions scenario collections to the list
-                return <option key={element.id} value={element.id}>{element.name}</option>;
-            })});
-        });
-
-        this.setState({displayRegions: true});
+                this.setState({
+                    regions: result.map(element => {
+                        // We need to add each regions scenario collections to the list
+                        return <option key={element.id} value={element.id}>{element.name}</option>;
+                    })
+                });
+            });
+            this.setState({ displayRegions: true });
+        }
+        else {
+            this.setState({ displayRegions: false });
+            this.setState({ displayScenarioCollections: false });
+            console.log(this.state.scenarioCollections);
+        }
+    
     }
 
     getScenarioCollections(event) {
-        let regionID = event.target.value;
-        let filteredScenarios = []
 
-        // Filter the scenarioCollections so that only the ones that are matching exist
-        this.state.scenarioCollections.map(result => {
-            if(result.id == regionID) {
-                result.scenarioCollections.map(result => {
-                    filteredScenarios.push(<option key={result.id} value={result.id}>{result.name}</option>)
-                })
-            }
-        });
+        if(event.target.value != this.props.language.chooseRegion) {
+            let regionID = event.target.value;
+            let filteredScenarios = []
 
-        this.setState({scenarioCollections: filteredScenarios});
-        this.setState({displayScenarioCollections: true});
+            // Filter the scenarioCollections so that only the ones that are matching exist
+            this.state.scenarioCollections.map(result => {
+                if(result.id == regionID) {
+                    result.scenarioCollections.map(result => {
+                        filteredScenarios.push(<option key={result.id} value={result.id}>{result.name}</option>)
+                    })
+                }
+            });
+
+            this.setState({scenarioCollections: filteredScenarios});
+            this.setState({displayScenarioCollections: true});
+        }
+        else {
+            this.setState({scenarioCollections: []});
+            this.setState({displayScenarioCollections: false});
+        }
 
     }
 
@@ -91,7 +111,7 @@ class ScenarioSelector extends Component {
                             {this.props.language.regionLevel}
                             <div className="form-group">
                                 <select className="form-control" id="regionLevel" onChange={this.getRegions} value={this.state.value}>
-                                    <option>{this.props.language.chooseRegionLevel}</option>
+                                    <option value={this.props.language.chooseRegionLevel}>{this.props.language.chooseRegionLevel}</option>
                                     {this.state.regionLevels}
                                 </select>
                             </div>
