@@ -14,7 +14,9 @@ class Language {
                 region: "Region",
                 scenarioCollection: "Scenario Collection",
                 scenarios: "Scenarios",
-                chooseRegionLevel: "Choose region level"
+                chooseRegionLevel: "Choose region level",
+                chooseRegion: "Choose region",
+                chooseScenarioCollection: "Choose scenario collection"
             }
         }
         // If Finnish is chosen when Languaeg is created populate with English
@@ -28,7 +30,9 @@ class Language {
                 region: "Alue",
                 scenarioCollection: "Skenaariokokoelma",
                 scenarios: "Skenaariot",
-                chooseRegionLevel: "Valitse aluetaso"
+                chooseRegionLevel: "Valitse aluetaso",
+                chooseRegion: "Valitse alue",
+                chooseScenarioCollection: "Valitse skenaariokokoelma"
             }
         }
 
