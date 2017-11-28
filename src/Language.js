@@ -1,3 +1,6 @@
+import React, { Component}  from 'react';
+import axios, { Component } from 'axios';
+
 class Language {
 
     constructor(language) {
@@ -5,6 +8,7 @@ class Language {
         let phrases = {}
         // If English is chosen when Language object is created then populate with English
         if (language === "English") {
+
             phrases = {
                 appName: "Forest Indicator App",
                 team: "Team 12: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen & Joshua O'Neill",
@@ -14,7 +18,16 @@ class Language {
                 region: "Region",
                 scenarioCollection: "Scenario Collection",
                 scenarios: "Scenarios",
-                chooseRegionLevel: "Choose region level"
+                chooseRegionLevel: "Choose region level",
+                chooseRegion: "Choose region",
+                chooseScenarioCollection: "Choose scenario collection",
+                timeWindow: "Time window",
+                indicatorChooser: "Indicator chooser",
+                timberProduction: "Timber production",
+                gatherProducts: "Gather products",
+                diversity: "Diversity",
+                coal: "Coal",
+                others: "Others"
             }
         }
         // If Finnish is chosen when Language is created populate with English
@@ -28,7 +41,16 @@ class Language {
                 region: "Alue",
                 scenarioCollection: "Skenaariokokoelma",
                 scenarios: "Skenaariot",
-                chooseRegionLevel: "Valitse aluetaso"
+                chooseRegionLevel: "Valitse aluetaso",
+                chooseRegion: "Valitse alue",
+                chooseScenarioCollection: "Valitse skenaariokokoelma",
+                timeWindow: "Ajankohta",
+                indicatorChooser: "Indikaattorien valinta",
+                timberProduction: "Puuntuotanto",
+                gatherProducts: "Keruutuotteet",
+                diversity: "Monimuotoisuus",
+                coal: "Hiili",
+                others: "Muut"
             }
         }
 
