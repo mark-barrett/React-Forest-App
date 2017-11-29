@@ -6,8 +6,9 @@ class IndicatorCategories extends Component {
         super(props);
 
         this.state = {
-            indicatorCategories: props.indicatorCategories,
-            options: []
+            indicatorCategories: [],
+            options: [],
+            indicatorsSet: false
         }
 
     }
@@ -17,20 +18,22 @@ class IndicatorCategories extends Component {
         // This will be called when the props sent are full.
         // We must ensure that it only gets called once so it doesnt create an infite loop.
         // Extra conditional logic is needed.
-        if(this.props.indicatorCategories.length > 0 && this.state.indicatorCategories.length < 0) {
-            // We can now set the state
-            this.setState({indicatorCategories: this.props.indicatorCategories});
-        }
-    }
+        if(this.props.indicatorCategories.length > 0 && this.state.indicatorsSet === false) {
+            // We can now set the states
 
-    componentDidMount() {
-        this.setState({options: this.state.indicatorCategories.map(element => {
-            return <p key={element.id}>{element.name}</p>
-        })});
-        // Now lets iterate over the state and make it presentable as options
-        this.state.indicatorCategories.map(element => {
-            // We need to have seperate 
-        })
+            // Make boolean true so this only executes once
+            this.setState({indicatorsSet: true})
+
+
+            // Update the states of the indicatorCategories
+            this.setState({ indicatorCategories: this.props.indicatorCategories }, function () {
+                this.setState({
+                    options: this.state.indicatorCategories.map(element => {
+                        return <p key={element.id}>{element.name}</p>
+                    })
+                });
+            });
+        }
     }
 
     render () {
@@ -40,8 +43,10 @@ class IndicatorCategories extends Component {
                     <div className="card-header text-center">
                         {this.props.language.chooseIndicator}
                     </div>
+                    <div className="card-body">
+                        {this.state.options}
+                    </div>
                 </div>
-                {this.state.options}
             </div>
         )
     }
