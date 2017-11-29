@@ -9,6 +9,7 @@
     "popper.js": "^1.12.9",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-highcharts": "^15.0.0",
     "react-scripts": "1.0.17"
   },
   "scripts": {

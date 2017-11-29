@@ -16,7 +16,8 @@ class Language {
                 scenarios: "Scenarios",
                 chooseRegionLevel: "Choose region level",
                 chooseRegion: "Choose region",
-                chooseScenarioCollection: "Choose scenario collection"
+                chooseScenarioCollection: "Choose scenario collection",
+                timePeriod: "Time Period"
             }
         }
         // If Finnish is chosen when Language is created populate with English
@@ -32,7 +33,8 @@ class Language {
                 scenarios: "Skenaariot",
                 chooseRegionLevel: "Valitse aluetaso",
                 chooseRegion: "Valitse alue",
-                chooseScenarioCollection: "Valitse skenaariokokoelma"
+                chooseScenarioCollection: "Valitse skenaariokokoelma",
+                timePeriod: "Ajankohta"
             }
         }
 

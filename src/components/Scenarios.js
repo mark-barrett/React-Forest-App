@@ -23,7 +23,13 @@ class Scenarios extends Component {
         // Get all scenarios based on the state passed in as a prop
         scenarios.getScenarioCollection(this.state.scenarioCollectionID, this.state.regionID)
         .then(result => {
-            console.log(result);
+            // Take this result and iterate over it
+            result.map(element => {
+                this.setState({scenariosList: element.scenarios.map(item => {
+                    return <option key={element.id} value={element.id}>{element.name}</option>;
+                })})
+                console.log(this.state.scenariosList);
+            })
         });
     }
 
@@ -32,6 +38,9 @@ class Scenarios extends Component {
             <div>
                 <hr/>   
                 {this.props.language.scenarios}
+                <select className="form-control" id="scenario" value={this.state.value}>
+                    {this.state.scenariosList}
+                </select>
             </div>
         )
     }
