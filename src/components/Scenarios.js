@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import scenarios from '../data/Scenarios';
+import TimePeriod from '../components/TimePeriod';
 
 class Scenarios extends Component {
 
@@ -14,7 +15,8 @@ class Scenarios extends Component {
             indicatorCategories: [],
             scenariosList: [],
             timePeriods: [],
-            values: []
+            values: [],
+            displayTimePeriods: false
         }
     }
 
@@ -25,24 +27,51 @@ class Scenarios extends Component {
         .then(result => {
             // Take this result and iterate over it
             result.map(element => {
+                console.log(element);
+                // Iterate over the scenarios and put them into an array
                 this.setState({scenariosList: element.scenarios.map(item => {
-                    return <option key={element.id} value={element.id}>{element.name}</option>;
+                    return <option key={item.id} value={item.id}>{item.description}</option>;
                 })})
-                console.log(this.state.scenariosList);
+
+                // Iterate over the time periods and put them into an array
+                this.setState({timePeriods: element.timePeriods.map(item => {
+                    return <option key={item.id} value={item.id}>{item.yearStart}-{item.yearEnd}</option>;
+                })})
+                this.setState({displayTimePeriods: true});
+
+                // Iterate ove
             })
         });
     }
 
     render () {
-        return (
-            <div>
-                <hr/>   
-                {this.props.language.scenarios}
-                <select className="form-control" id="scenario" value={this.state.value}>
-                    {this.state.scenariosList}
-                </select>
-            </div>
-        )
+
+        if(this.state.displayTimePeriods === false) {
+            return (
+                <div>
+                    <hr />
+                    {this.props.language.scenarios}
+                    <select className="form-control" id="scenario" value={this.state.value} multiple>
+                        {this.state.scenariosList}
+                    </select>
+                </div>
+            )
+        }
+        else {
+            return (
+                <div>
+                    <hr/>   
+                    {this.props.language.scenarios}
+                    <select className="form-control" id="scenario" value={this.state.value} multiple>
+                        {this.state.scenariosList}
+                    </select>
+
+                    <br/>
+
+                    <TimePeriod language={this.props.language} timePeriods={this.state.timePeriods}/>
+                </div>
+            )
+        }
     }
 }
 
