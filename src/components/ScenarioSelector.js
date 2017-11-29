@@ -21,6 +21,7 @@ class ScenarioSelector extends Component {
         this.getRegions = this.getRegions.bind(this);
         this.getScenarioCollections = this.getScenarioCollections.bind(this);
         this.displayScenarios = this.displayScenarios.bind(this);
+        this.displayIndicators = this.displayIndicators.bind(this);
     }
 
     componentDidMount() {
@@ -107,6 +108,11 @@ class ScenarioSelector extends Component {
         // Set the scenario collection id to pass into the scenarios component
         this.setState({ scenarioRegionSelection: event.target.value});
         this.setState({displayScenarios: true});
+    }
+
+    displayIndicators(indicatorCategories) {
+        // Pass it to the home component
+        this.props.displayIndicators(indicatorCategories);
     }
 
     render () {
@@ -231,7 +237,7 @@ class ScenarioSelector extends Component {
                                     {this.state.scenarioCollections}
                                 </select>
                             </div>
-                            <Scenarios language={this.props.language} scenarioRegion={this.state.scenarioRegionSelection} />
+                            <Scenarios language={this.props.language} scenarioRegion={this.state.scenarioRegionSelection} displayIndicators={this.displayIndicators}/>
                         </div>
                     </div>
                 </div>

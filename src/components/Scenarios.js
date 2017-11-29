@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import scenarios from '../data/Scenarios';
 import TimePeriod from '../components/TimePeriod';
+import IndicatorCategories from '../components/IndicatorCategories';
 
 class Scenarios extends Component {
 
@@ -12,7 +13,7 @@ class Scenarios extends Component {
             scenarioCollectionID: props.scenarioRegion.substr(0, props.scenarioRegion.indexOf('-')),
             // Get the passed down value from the prop. After the dash is the regionID
             regionID: props.scenarioRegion.split('-')[1],
-            indicatorCategories: [],
+            indicatorCategories: null,
             scenariosList: [],
             timePeriods: [],
             values: [],
@@ -27,7 +28,6 @@ class Scenarios extends Component {
         .then(result => {
             // Take this result and iterate over it
             result.map(element => {
-                console.log(element);
                 // Iterate over the scenarios and put them into an array
                 this.setState({scenariosList: element.scenarios.map(item => {
                     return <option key={item.id} value={item.id}>{item.description}</option>;
@@ -39,7 +39,11 @@ class Scenarios extends Component {
                 })})
                 this.setState({displayTimePeriods: true});
 
-                // Iterate ove
+                // Iterate over the indicatorCategories
+                this.setState({indicatorCategories: element.indicatorCategories});
+
+                // Tell the scenario component to display the indicators on the right.
+                this.props.displayIndicators(this.state.indicatorCategories);
             })
         });
     }
@@ -59,16 +63,30 @@ class Scenarios extends Component {
         }
         else {
             return (
+                !this.state.indicatorCategories ?
                 <div>
-                    <hr/>   
+                    <hr />
                     {this.props.language.scenarios}
                     <select className="form-control" id="scenario" value={this.state.value} multiple>
                         {this.state.scenariosList}
                     </select>
 
-                    <br/>
+                    <br />
 
-                    <TimePeriod language={this.props.language} timePeriods={this.state.timePeriods}/>
+                    <TimePeriod language={this.props.language} timePeriods={this.state.timePeriods} />
+                </div>
+                :
+                <div>
+                    <hr />
+                    {this.props.language.scenarios}
+                    <select className="form-control" id="scenario" value={this.state.value} multiple>
+                        {this.state.scenariosList}
+                    </select>
+
+                    <br />
+
+                    <TimePeriod language={this.props.language} timePeriods={this.state.timePeriods} />
+
                 </div>
             )
         }
