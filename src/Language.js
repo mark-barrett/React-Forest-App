@@ -15,6 +15,9 @@ class Language {
                 region: "Region",
                 scenarioCollection: "Scenario collection",
                 scenarios: "Scenarios",
+                chooseRegionLevel: "Choose region level",
+                chooseRegion: "Choose region",
+                chooseScenarioCollection: "Choose scenario collection",
                 timeWindow: "Time window",
                 indicatorChooser: "Indicator chooser",
                 timberProduction: "Timber production",
@@ -24,7 +27,7 @@ class Language {
                 others: "Others"
             }
         }
-        // If Finnish is chosen when Languaeg is created populate with English
+        // If Finnish is chosen when Language is created populate with English
         else if (language === "Finnish") {
             phrases = {
                 appName: "Metsämittari Sovellus",
@@ -35,6 +38,9 @@ class Language {
                 region: "Alue",
                 scenarioCollection: "Skenaariokokoelma",
                 scenarios: "Skenaariot",
+                chooseRegionLevel: "Valitse aluetaso",
+                chooseRegion: "Valitse alue",
+                chooseScenarioCollection: "Valitse skenaariokokoelma",
                 timeWindow: "Ajankohta",
                 indicatorChooser: "Indikaattorien valinta",
                 timberProduction: "Puuntuotanto",

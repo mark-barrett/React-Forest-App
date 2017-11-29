@@ -5084,8 +5084,8 @@ tbody.collapse.show {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #4582EC;
-  border-color: #4582EC;
+  background-color: #237B36;
+  border-color: #237B36;
 }
 
 .list-group-flush .list-group-item {
