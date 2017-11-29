@@ -29,7 +29,17 @@ class IndicatorCategories extends Component {
             this.setState({ indicatorCategories: this.props.indicatorCategories }, function () {
                 this.setState({
                     options: this.state.indicatorCategories.map(element => {
-                        return <p key={element.id}>{element.name}</p>
+                        return (
+                            <div>
+                                {element.name}
+                                <select className="form-control" id={element.id} value={this.state.value} multiple>
+                                    {element.indicators.map(item => {
+                                        return <option value={item.id} key={item.id}>{item.name}</option>
+                                    })}
+                                </select>
+                                <br/>
+                            </div>
+                        )
                     })
                 });
             });
