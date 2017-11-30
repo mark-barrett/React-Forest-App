@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Welcome from './components/Welcome';
 import Contact from './components/Contact';
@@ -12,7 +11,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      appIsOpen: true
+      appIsOpen: false
     }
 
     // Bind the openApp function to have this
@@ -23,7 +22,9 @@ class App extends Component {
   }
 
   openApp() {
-    this.setState({appIsOpen: true})
+    if(this.state.appIsOpen === false){
+      this.setState({appIsOpen: true})
+    }
   }
 
   render() {
