@@ -23,7 +23,6 @@ class IndicatorCategories extends Component {
         */
         let newIndicatorIDs = event.target.options;
         var value = this.state.selectedIndicatorIDs;
-        let test = false;
         
         for (var i = 0, l = newIndicatorIDs.length; i < l; i++) {
             if (newIndicatorIDs[i].selected) {
@@ -82,7 +81,7 @@ class IndicatorCategories extends Component {
                                 {element.name}
                                 <select className="form-control" id={element.id} value={this.state.value} multiple>
                                     {element.indicators.map(item => {
-                                        return <option value={item.id} key={item.id}>{item.name}-{item.id}</option>
+                                        return <option value={item.id} key={item.id}>{item.name}</option>
                                     })}
                                 </select>
                                 <br/>
