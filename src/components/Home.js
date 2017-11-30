@@ -24,6 +24,13 @@ class Home extends Component {
         this.setState({indicatorCategories: _indicatorCategories});
     }
 
+    indicatorsChanged(indicatorIDs) {
+        // This gets called whenever the indicators are changed
+
+        console.log(indicatorIDs);
+
+    }
+
     render () {
 
         if(this.state.displayIndicators === false) {
@@ -56,7 +63,7 @@ class Home extends Component {
                         <div className="col-md-6">
                         </div>
                         <div className="col-md-3">
-                            <IndicatorCategories language={this.props.language} indicatorCategories={this.state.indicatorCategories} />
+                            <IndicatorCategories language={this.props.language} indicatorCategories={this.state.indicatorCategories} indicatorsChanged={this.indicatorsChanged}/>
                         </div>
                     </div>
                 </div>

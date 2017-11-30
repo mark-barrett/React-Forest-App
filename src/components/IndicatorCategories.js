@@ -8,9 +8,57 @@ class IndicatorCategories extends Component {
         this.state = {
             indicatorCategories: [],
             options: [],
-            indicatorsSet: false
+            indicatorsSet: false,
+            selectedIndicatorIDs: []
         }
 
+        // Bind this to the indicatorChanged method
+        this.indicatorChanged = this.indicatorChanged.bind(this);
+    }
+
+    indicatorChanged(event) {
+        /* This gets called everytime an indicator is changed
+        We must take the value that has changed append it to the selected list if not there and pass it back
+        up to the home component.
+        */
+        let newIndicatorIDs = event.target.options;
+        var value = this.state.selectedIndicatorIDs;
+        let test = false;
+        
+        for (var i = 0, l = newIndicatorIDs.length; i < l; i++) {
+            if (newIndicatorIDs[i].selected) {
+                value.push(newIndicatorIDs[i].value);
+            }
+            // Check for unselected
+            else {
+                // If there are unselected, strip them from the array
+                for(var j=0; j<this.state.selectedIndicatorIDs.length; j++) {
+                    // If there is a value that is unselected present in any position
+                    if(this.state.selectedIndicatorIDs[j] == newIndicatorIDs[i].value) {
+                        // Create a temp array
+                        let temp_ids = this.state.selectedIndicatorIDs;
+                        // Strip that value from the temp array
+                        temp_ids.splice(j, 1);
+                        // Set the state back to that stripped array
+                        this.setState({selectedIndicatorIDs: temp_ids});
+                    }
+                }
+            }
+        }
+
+        // Remove any duplicates
+        for (var i = 0; i < value.length; ++i) {
+            for (var j = i + 1; j < value.length; ++j) {
+                if (value[i] === value[j])
+                    value.splice(j--, 1);
+            }
+        }
+
+        // Finally update the state
+        this.setState({ selectedIndicatorIDs: value });
+
+        // Call the indicators changed method to pass values to the home component
+        this.props.indicatorsChanged(this.state.selectedIndicatorIDs);
     }
 
     // This will be called when the component is updated
@@ -34,7 +82,7 @@ class IndicatorCategories extends Component {
                                 {element.name}
                                 <select className="form-control" id={element.id} value={this.state.value} multiple>
                                     {element.indicators.map(item => {
-                                        return <option value={item.id} key={item.id}>{item.name}</option>
+                                        return <option value={item.id} key={item.id}>{item.name}-{item.id}</option>
                                     })}
                                 </select>
                                 <br/>
@@ -54,7 +102,11 @@ class IndicatorCategories extends Component {
                         {this.props.language.chooseIndicator}
                     </div>
                     <div className="card-body">
-                        {this.state.options}
+                        <form name="indicatorCategories" onChange={this.indicatorChanged} value={this.state.value}>
+                            {this.state.options}
+                        </form>
+
+                        {this.state.selectedIndicatorIDs}
                     </div>
                 </div>
             </div>
