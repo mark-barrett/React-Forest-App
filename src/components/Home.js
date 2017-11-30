@@ -1,26 +1,35 @@
 import React, { Component } from 'react'
 import TopNav from './TopNav';
 import ScenarioSelector from './ScenarioSelector';
+import IndicatorCategories from '../components/IndicatorCategories';
 import Contact from './Contact';
 import language from '../Language';
 
 class Home extends Component {
-
-    constructor(props){
+  
+    constructor(props) {
         super(props);
 
         this.state = {
+            displayIndicators: false,
+            indicatorCategories: [],
             mailIsOpen : false
         }
 
         this.openMail = this.openMail.bind(this);
-        this.language = new language("English");
-
+        this.displayIndicators = this.displayIndicators.bind(this);
     }
+
     openMail(){
         if (this.state.mailIsOpen === false) {
             this.setState({mailIsOpen: true})
         }
+    }
+  
+    displayIndicators(_indicatorCategories) {
+        // Display the indicators
+        this.setState({displayIndicators: true});
+        this.setState({indicatorCategories: _indicatorCategories});
     }
 
     render () {
@@ -32,22 +41,42 @@ class Home extends Component {
             )
         }
         else {
-            return (
-                <div>
-                    <TopNav language={this.props.language} openMail={this.openMail} />
-    
-                    <div className="row">
-                        <div className="col-md-4">
-                            <ScenarioSelector language={this.props.language} />
-                        </div>
-    
-                        <div className="col-md-8">
+            if(this.state.displayIndicators === false) {
+                return (
+                    <div>
+                        <TopNav language={this.props.language} openMail={this.openMail}/>
+
+                        <div className="row">
+                            <div className="col-md-3">
+                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} />
+                            </div>
+                            <div className="col-md-6">
+                            </div>
+                            <div className="col-md-3">
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            )
+                )
+            }
+            else {
+                return (
+                    <div>
+                        <TopNav language={this.props.language} openMail={this.openMail}/>
+
+                        <div className="row">
+                            <div className="col-md-3">
+                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} />
+                            </div>
+                            <div className="col-md-6">
+                            </div>
+                            <div className="col-md-3">
+                                <IndicatorCategories language={this.props.language} indicatorCategories={this.state.indicatorCategories} />
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
         }
     }
 }
-
-export default Home
