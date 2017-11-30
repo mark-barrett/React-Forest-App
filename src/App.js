@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Welcome from './components/Welcome';
 import Contact from './components/Contact';
@@ -23,7 +22,9 @@ class App extends Component {
   }
 
   openApp() {
-    this.setState({appIsOpen: true})
+    if(this.state.appIsOpen === false){
+      this.setState({appIsOpen: true})
+    }
   }
 
   render() {

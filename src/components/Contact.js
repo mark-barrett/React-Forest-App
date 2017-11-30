@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
+import language from '../Language';
 
 class Contact extends Component {
     render () {
         return (
-            <div class="container">
-                <div class="form-group row">
-                    <label class="col-sm-1 col-form-label">Address</label>
-                    <input class="col-sm-4" name="inputEmail" id="inputEmail" placeholder="email@example.com"></input>
+            <div className="container">
+                <div className="form-group row">
+                    <label className="col-sm-1 col-form-label">Address</label>
+                    <input className="col-sm-4" name="inputEmail" id="inputEmail" placeholder="email@example.com"></input>
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-1 col-form-label">Subject</label>
-                    <input class="col-sm-3" name="inputSubject" id="inputSubject"></input>
+                <div className="form-group row">
+                    <label className="col-sm-1 col-form-label">Subject</label>
+                    <input className="col-sm-3" name="inputSubject" id="inputSubject"></input>
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-1 col-form-label">Text</label>
-                    <textarea class="col-sm-5" name="inputText" id="inputText" rows="6"></textarea>
+                <div className="form-group row">
+                    <label className="col-sm-1 col-form-label">Text</label>
+                    <textarea className="col-sm-5" name="inputText" id="inputText" rows="6"></textarea>
                 </div>
-                <button id="button2" class="btn btn-second" onClick={sendEmail}>Send</button>
+                <button id="button2" className="btn btn-second" onClick={sendEmail}>Send</button>
             </div>                
         )
     }
