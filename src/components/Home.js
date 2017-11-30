@@ -4,6 +4,7 @@ import ScenarioSelector from './ScenarioSelector';
 import IndicatorCategories from '../components/IndicatorCategories';
 import Contact from './Contact';
 import language from '../Language';
+import Display from '../components/Display';
 
 class Home extends Component {
   
@@ -16,7 +17,8 @@ class Home extends Component {
             mailIsOpen : false,
             indicatorIDs: [],
             scenarioIDs: [],
-            timePeriodIDs: []
+            timePeriodIDs: [],
+            regionName: ""
         }
 
         this.openMail = this.openMail.bind(this);
@@ -24,6 +26,7 @@ class Home extends Component {
         this.indicatorsChanged = this.indicatorsChanged.bind(this);
         this.scenariosChanged = this.scenariosChanged.bind(this);
         this.timesChanged = this.timesChanged.bind(this);
+        this.regionName = this.regionName.bind(this);
     }
 
     openMail(){
@@ -38,9 +41,10 @@ class Home extends Component {
         this.setState({indicatorCategories: _indicatorCategories});
     }
 
-    indicatorsChanged(indicatorIDs) {
+    indicatorsChanged(_indicatorIDs) {
+        console.log(_indicatorIDs);
         // This gets called whenever the indicators are changed
-        this.setState({indicatorIDs: indicatorIDs});
+        this.setState({indicatorIDs: _indicatorIDs});
     }
 
     scenariosChanged(scenarioIDs) {
@@ -52,8 +56,8 @@ class Home extends Component {
         this.setState({timePeriodIDs: timePeriodIDs});
     }
 
-    componentDidUpdate() {
-        console.log("Updated");
+    regionName(_regionName) {
+        this.setState({regionName: _regionName});
     }
 
     render () {
@@ -72,7 +76,7 @@ class Home extends Component {
 
                         <div className="row">
                             <div className="col-md-3">
-                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged}/>
+                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName}/>
                             </div>
                             <div className="col-md-6">
                             </div>
@@ -87,12 +91,12 @@ class Home extends Component {
                 return (
                     <div>
                         <TopNav language={this.props.language} openMail={this.openMail}/>
-
                         <div className="row">
                             <div className="col-md-3">
-                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged}/>
+                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName}/>
                             </div>
                             <div className="col-md-6">
+                                <Display indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName}/>
                             </div>
                             <div className="col-md-3">
                                 <IndicatorCategories language={this.props.language} indicatorCategories={this.state.indicatorCategories} indicatorsChanged={this.indicatorsChanged}/>

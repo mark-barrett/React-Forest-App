@@ -90,7 +90,7 @@ class Scenarios extends Component {
 
                     <br />
 
-                        <TimePeriod language={this.props.language} timePeriods={this.state.timePeriods} timesChanged={this.props.timesChanged}/>
+                        <TimePeriod language={this.props.language} timePeriods={this.state.timePeriods} timesChanged={this.props.timesChange}/>
                 </div>
                 :
                 <div>

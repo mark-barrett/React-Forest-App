@@ -1,0 +1,41 @@
+scenarioID
+indicatorID
+timePeriodID
+
+
+
+element.name
+<select multiple>
+	<option>element.indicator</option>
+</select>
+
+
+
+Wood Production:
+
+
+Scenario.js
+ScenarioSelector.js
+Break into Componenets
+
+graph {
+	scenarioIDs: [1, 2, 3, 4, 5]
+	indicatorID: [1, 2, 4, 4, 5]
+	timePeriod: 2
+}
+
+
+data = {
+	scenario = {
+		name = "Mustikkasato"
+		id = 1
+		indicators = {
+			Hakkuukertyma = {
+				sum of all values for that indicator
+			}
+		},
+	}
+}
+
+
+
