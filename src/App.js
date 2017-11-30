@@ -6,6 +6,10 @@ import Contact from './components/Contact';
 import Home from './components/Home';
 import language from './Language';
 
+
+
+import Graphs from './components/Graphs';
+
 class App extends Component {
 
   constructor(props) {
@@ -27,11 +31,13 @@ class App extends Component {
   }
 
   render() {
+
     // If the app is open the render the main app component
     if(this.state.appIsOpen) {
       return (
         <div>
           <Home language={this.language}/>
+          <Graphs /> 
         </div>
       );
     }
