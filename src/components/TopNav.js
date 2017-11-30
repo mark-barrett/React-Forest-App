@@ -24,7 +24,7 @@ class TopNav extends Component {
                                 </div>
                             </form>
                         </div>
-                        <button className="w3-btn" onClick={this.props.openApp}> <img src="https://cdn4.iconfinder.com/data/icons/aiga-symbol-signs/439/aiga_mail-32.png" alt="" /></button>
+                        <button className="w3-btn" onClick={this.props.openMail}> <img src="https://cdn4.iconfinder.com/data/icons/aiga-symbol-signs/439/aiga_mail-32.png" alt="" /></button>
                     </div>
                 </nav>
             </div>

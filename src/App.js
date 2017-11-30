@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Welcome from './components/Welcome';
 import Contact from './components/Contact';
@@ -12,8 +11,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      appIsOpen: true,
-      appOpenID: 0
+      appIsOpen: false
     }
 
     // Bind the openApp function to have this
@@ -24,17 +22,14 @@ class App extends Component {
   }
 
   openApp() {
-    if(this.state.appOpenID === 0){
-      this.setState({appOpenID: 1})
-    }
-    else {
-      this.setState({appOpenID: 2})
+    if(this.state.appIsOpen === false){
+      this.setState({appIsOpen: true})
     }
   }
 
   render() {
     // If the app is open the render the main app component
-    if(this.state.appOpenID === 1) {
+    if(this.state.appIsOpen) {
       return (
         <div>
           <Home language={this.language}/>
@@ -42,17 +37,10 @@ class App extends Component {
       );
     }
     // If not then render the welcome component
-    else if(this.state.appOpenID === 0) {
+    else {
       return (
         <div>
           <Welcome language={this.language} openApp={this.openApp} />
-        </div>
-      );
-    }
-    else if(this.state.appOpenID === 2) {
-      return (
-        <div>
-          <Contact language={this.language} openApp={this.openApp} />
         </div>
       );
     }
