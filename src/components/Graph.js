@@ -10,6 +10,7 @@ class Graph extends Component {
             indicatorIDs: [],
             timePeriodIDs: "",
             dataSet: [],
+            graph: null
         }
     }
 
@@ -30,7 +31,6 @@ class Graph extends Component {
         if(this.props.timePeriodIDs !== this.state.timePeriodIDs) {
             this.setState({timePeriodIDs: this.props.timePeriodIDs});
         }
-        console.log(this.state.dataSet);
 
         // Constructing the dataObject
         let data = [
@@ -97,7 +97,7 @@ class Graph extends Component {
                             }
                         }
 
-                        // Now we have the sum, lets update that particular indicator with a sum field
+                        // Now we have the sum, lets update that particular§indicator with a sum field
                         indicators[index].sum = sum;
                     })
 
@@ -107,16 +107,15 @@ class Graph extends Component {
                         indicators: indicators
                     }
                 }),
-        ]
-
-        console.log(data);
+            ]
+        
     }
 
     render () {
+        
         return (
             <div>
-                Scenario IDS real
-                {this.state.scenarioIDs}
+
             </div>
         )
     }
