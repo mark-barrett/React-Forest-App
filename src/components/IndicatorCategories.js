@@ -57,7 +57,7 @@ class IndicatorCategories extends Component {
         this.setState({ selectedIndicatorIDs: value });
 
         // Call the indicators changed method to pass values to the home component
-        this.props.indicatorsChanged(this.state.selectedIndicatorIDs);
+        this.props.indicatorsChanged(value);
     }
 
     // This will be called when the component is updated

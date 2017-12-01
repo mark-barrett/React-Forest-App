@@ -18,7 +18,7 @@ class App extends Component {
     this.openApp = this.openApp.bind(this);
 
     // Instantiate the language class for use on the app.
-    this.language = new language("Finnish");
+    this.language = new language("English");
   }
 
   openApp() {

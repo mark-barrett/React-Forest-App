@@ -245,7 +245,7 @@ class ScenarioSelector extends Component {
                                     {this.state.scenarioCollections}
                                 </select>
                             </div>
-                            <Scenarios language={this.props.language} scenarioRegion={this.state.scenarioRegionSelection} displayIndicators={this.displayIndicators} scenariosChanged={this.props.scenariosChanged} timesChanged={this.props.timesChanged}/>
+                            <Scenarios language={this.props.language} scenarioRegion={this.state.scenarioRegionSelection} displayIndicators={this.displayIndicators} scenariosChanged={this.props.scenariosChanged} timesChanged={this.props.timesChanged} getDataSet={this.props.getDataSet}/>
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,8 @@ class Home extends Component {
             indicatorIDs: [],
             scenarioIDs: [],
             timePeriodIDs: [],
-            regionName: ""
+            regionName: "",
+            dataSet: []
         }
 
         this.openMail = this.openMail.bind(this);
@@ -27,6 +28,7 @@ class Home extends Component {
         this.scenariosChanged = this.scenariosChanged.bind(this);
         this.timesChanged = this.timesChanged.bind(this);
         this.regionName = this.regionName.bind(this);
+        this.getDataSet = this.getDataSet.bind(this);
     }
 
     openMail(){
@@ -42,7 +44,6 @@ class Home extends Component {
     }
 
     indicatorsChanged(_indicatorIDs) {
-        console.log(_indicatorIDs);
         // This gets called whenever the indicators are changed
         this.setState({indicatorIDs: _indicatorIDs});
     }
@@ -58,6 +59,11 @@ class Home extends Component {
 
     regionName(_regionName) {
         this.setState({regionName: _regionName});
+    }
+
+    getDataSet(_dataSet) {
+        // Get the selected data set to pass to the graph component
+        this.setState({dataSet: _dataSet});
     }
 
     render () {
@@ -76,7 +82,7 @@ class Home extends Component {
 
                         <div className="row">
                             <div className="col-md-3">
-                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName}/>
+                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet}/>
                             </div>
                             <div className="col-md-6">
                             </div>
@@ -93,10 +99,10 @@ class Home extends Component {
                         <TopNav language={this.props.language} openMail={this.openMail}/>
                         <div className="row">
                             <div className="col-md-3">
-                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName}/>
+                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet}/>
                             </div>
                             <div className="col-md-6">
-                                <Display indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName}/>
+                                <Display indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName} dataSet={this.state.dataSet}/>
                             </div>
                             <div className="col-md-3">
                                 <IndicatorCategories language={this.props.language} indicatorCategories={this.state.indicatorCategories} indicatorsChanged={this.indicatorsChanged}/>

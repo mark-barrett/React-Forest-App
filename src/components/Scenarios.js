@@ -28,6 +28,8 @@ class Scenarios extends Component {
         // Get all scenarios based on the state passed in as a prop
         scenarios.getScenarioCollection(this.state.scenarioCollectionID, this.state.regionID)
         .then(result => {
+            // Send this result set to the home component
+            this.props.getDataSet(result);
             // Take this result and iterate over it
             result.map(element => {
                 // Iterate over the scenarios and put them into an array
