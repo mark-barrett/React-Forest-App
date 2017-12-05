@@ -130,7 +130,7 @@ class Graphs extends Component{
                 }
             },
             series: [{
-                name: 'Scenarios',
+                name: 'Scenarioname',
                 colorByPoint: true,
                 
                 data: [{     //Data goes here
