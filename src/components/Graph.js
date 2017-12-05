@@ -4,7 +4,7 @@ const ReactHighchartsexporting = require('highcharts-exporting')
 
 class Graph extends Component {
 
-    chartChoice = 'pie';
+    chartChoice = 'bar';
 
     constructor(props) {
         super(props);
