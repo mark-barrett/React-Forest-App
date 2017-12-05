@@ -8979,3 +8979,9 @@ table-success, table-info, table-warning, table-danger,
     background-size: 200px;
     background-position: right bottom;
 }
+
+.scrollable {
+  overflow-y: scroll;
+  height: 100%;
+  margin: 0px;
+}
