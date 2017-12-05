@@ -16,68 +16,12 @@ class Display extends Component {
         }
     }
 
-    componentDidUpdate() {
-        let data = [];
-
-        // Update the state while it is not the same as the props
-        if (this.props.scenarioIDs !== this.state.scenarioIDs) {
-            this.setState({ scenarioIDs: this.props.scenarioIDs });
-        }
-        // Check to see if the passed data set is equal to the current set one. If not update
-        if (this.props.dataSet !== this.state.dataSet) {
-            this.setState({ dataSet: this.props.dataSet });
-        }
-        // Check to see if the indicatorIDs props are the same as the state and if not then update them
-        if (this.props.indicatorIDs !== this.state.indicatorIDs) {
-            this.setState({ indicatorIDs: this.props.indicatorIDs });
-        }
-        // Check to see if the time period ID is set and if not then update it
-        if (this.props.timePeriodIDs !== this.state.timePeriodIDs) {
-            this.setState({ timePeriodIDs: this.props.timePeriodIDs });
-        }      
-    }
-
-    renderScenarioGrids(data) {
-        let grids = [];
-
-        if(data[0].length == 1) {
-            let grid_item = (
-                <div>
-                    <div class="col-md-12">
-                        One scenario
-                    </div>
-                </div>
-            )
-            grids.push(grid_item);
-        }
-        else if(data[0].length > 1) {
-            data.forEach(element => {
-                let grid_item = (
-                    <div>
-                        <div class="col-md-6">
-                            More than one
-                        </div>
-                    </div>
-                )
-                grids.push(grid_item);
-            })
-        }
-
-        if(this.state.html !== grids) {
-            console.log("Not the same");
-            console.log(this.state.html);
-            console.log(grids);
-        } else {
-            console.log("They are the same");
-        }
-    }
-
     render () {
 
         // Constructing the dataObject
         let data = [
             // Loop through each state and set the parametes
-            this.state.scenarioIDs.map(scenario => {
+            this.props.scenarioIDs.map(scenario => {
 
                 let scenarioID = scenario;
                 let scenarioName = "";
@@ -85,14 +29,14 @@ class Display extends Component {
                 let indicators = [];
 
                 // Loop through the dataSet looking for the scenario name using index 0 because only 1 scenario collection can be chosen
-                for (let i = 0; i < this.state.dataSet[0].scenarios.length; i++) {
-                    if (this.state.dataSet[0].scenarios[i].id == scenario) {
-                        scenarioName = this.state.dataSet[0].scenarios[i].description;
+                for (let i = 0; i < this.props.dataSet[0].scenarios.length; i++) {
+                    if (this.props.dataSet[0].scenarios[i].id == scenario) {
+                        scenarioName = this.props.dataSet[0].scenarios[i].description;
                     }
                     // Loop through the dataSet and using the indicatorIDs find the indicator descriptions and make a new object for each
-                    for (let j = 0; j < this.state.dataSet[0].indicatorCategories.length; j++) {
+                    for (let j = 0; j < this.props.dataSet[0].indicatorCategories.length; j++) {
                         // Now we are looping through the indicatorCategories we need to loop through those indicators
-                        for (let y = 0; y < this.state.dataSet[0].indicatorCategories[j].indicators.length; y++) {
+                        for (let y = 0; y < this.props.dataSet[0].indicatorCategories[j].indicators.length; y++) {
                             let indicatorID = "";
                             let indicatorName = "";
                             let sum = 0;
@@ -100,10 +44,10 @@ class Display extends Component {
 
                             // Now that we are looping through all of the indicatorCategories we must compare each id to the indicatorIDs
                             // If it is a match then we construct a new object with that name and id
-                            for (let x = 0; x < this.state.indicatorIDs.length; x++) {
-                                if (this.state.indicatorIDs[x] == this.state.dataSet[0].indicatorCategories[j].indicators[y].id) {
-                                    indicatorID = this.state.indicatorIDs[x];
-                                    indicatorName = this.state.dataSet[0].indicatorCategories[j].indicators[y].name;
+                            for (let x = 0; x < this.props.indicatorIDs.length; x++) {
+                                if (this.props.indicatorIDs[x] == this.props.dataSet[0].indicatorCategories[j].indicators[y].id) {
+                                    indicatorID = this.props.indicatorIDs[x];
+                                    indicatorName = this.props.dataSet[0].indicatorCategories[j].indicators[y].name;
                                 }
                             }
 
@@ -133,9 +77,9 @@ class Display extends Component {
 
                     let sum = 0;
 
-                    for (let q = 0; q < this.state.dataSet[0].values.length; q++) {
-                        if (this.state.dataSet[0].values[q].indicatorId == i.id && this.state.dataSet[0].values[q].scenarioId == scenario) {
-                            sum += this.state.dataSet[0].values[q].value;
+                    for (let q = 0; q < this.props.dataSet[0].values.length; q++) {
+                        if (this.props.dataSet[0].values[q].indicatorId == i.id && this.props.dataSet[0].values[q].scenarioId == scenario) {
+                            sum += this.props.dataSet[0].values[q].value;
                         }
                     }
 
