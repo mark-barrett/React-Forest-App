@@ -17,25 +17,12 @@ class Graphs extends Component{
 
         global.Highcharts = require('highcharts');
         require('highcharts/modules/exporting')(global.Highcharts);
-        global.HighchartsMore = require('highcharts-more');
-        //var PolarChart = require('highcharts/modules/highcharts-more');
+        global.HighchartsMore = require('highcharts-more');        
     }
 
     componentDidUpdate()
     {
-
-    }
-
-    setChartType(choice)
-    {
-        this.chartChoice = choice;
-
-
-
-
-        this.forceUpdate(); //Renders Chart again
-        //this.ReactHighcharts.render();
-        //this.render(); //Works only sometimes dunno why??
+        this.chartChoice = this.props.chartSelection;
     }
 
     render() {
@@ -163,18 +150,6 @@ class Graphs extends Component{
         return(
 
             <div >
-                <div className="chartTypeButtonBar">Chart type:
-                <ButtonToolbar>
-                    <ToggleButtonGroup type="radio" name="options" defaultValue={1} >
-                        <ToggleButton onClick={ () => {this.setChartType('pie')} } value={1}>Pie Chart</ToggleButton>
-                        <ToggleButton onClick={ () => {this.setChartType('area')} } value={2}>Area Chart</ToggleButton>
-                        <ToggleButton onClick={ () => {this.setChartType('line')} } value={3}>Line Chart</ToggleButton>
-                        <ToggleButton onClick={ () => {this.setChartType('column')} }value={4}>Column Chart</ToggleButton>
-                        <ToggleButton onClick={ () => {this.setChartType('bar')} }value={5}>Bar Chart</ToggleButton>
-                        <ToggleButton onClick={ () => {this.setChartType('polar')} }value={6}>Polar Chart</ToggleButton>
-                    </ToggleButtonGroup>
-                </ButtonToolbar>
-                </div>
                 <ReactHighcharts config = { this.config }></ReactHighcharts>
             </div>
         )

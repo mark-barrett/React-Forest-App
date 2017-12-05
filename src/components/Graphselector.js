@@ -11,17 +11,16 @@ constructor(props)
 
 render()
 {
-    <div className="chartTypeButtonBar">Chart type:
-    <ButtonToolbar>
-        <ToggleButtonGroup type="radio" name="options" defaultValue={1} >
-            <ToggleButton onClick={ } value={1}>Pie Chart</ToggleButton>
-            <ToggleButton onClick={ } value={2}>Area Chart</ToggleButton>
-            <ToggleButton onClick={ } value={3}>Line Chart</ToggleButton>
-            <ToggleButton onClick={ }value={4}>Column Chart</ToggleButton>
-            <ToggleButton onClick={ }value={5}>Bar Chart</ToggleButton>
-            <ToggleButton onClick={ }value={6}>Polar Chart</ToggleButton>
-        </ToggleButtonGroup>
-    </ButtonToolbar>
-    </div>
+            return(
+                <div className="chartTypeButtonBar">Chart type:
+                        <button onClick={() =>  this.props.changeChart("pie") }>Pie Chart</button>
+                        <button onClick={ () => this.props.changeChart("area") } >Area Chart</button>
+                        <button onClick={ () => this.props.changeChart("line")  } >Line Chart</button>
+                        <button onClick={ () => this.props.changeChart("column") }>Column Chart</button>
+                        <button onClick={ () => this.props.changeChart("bar") }>Bar Chart</button>
+                        <button onClick={ () => this.props.changeChart("polar") }>Polar Chart</button>
+                </div>
+            )
 }
 }
+export default Graphselector

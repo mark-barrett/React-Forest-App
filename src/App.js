@@ -9,6 +9,7 @@ import language from './Language';
 
 
 import Graphs from './components/Graphs';
+import Graphselector from './components/Graphselector'
 
 class App extends Component {
 
@@ -21,13 +22,22 @@ class App extends Component {
 
     // Bind the openApp function to have this
     this.openApp = this.openApp.bind(this);
+    this.changeChart = this.changeChart.bind(this);
 
     // Instantiate the language class for use on the app.
     this.language = new language("English");
+    this.chartSelection = "pie"; //Default chart
+    
   }
 
   openApp() {
     this.setState({appIsOpen: true})
+  }
+
+  changeChart(chart) {
+    console.log(chart);
+    this.chartSelection = chart;
+    this.forceUpdate();
   }
 
   render() {
@@ -37,7 +47,8 @@ class App extends Component {
       return (
         <div>
           <Home language={this.language}/>
-          <Graphs /> 
+          <Graphselector changeChart={this.changeChart}/>
+          <Graphs chartSelection={this.chartSelection}/> 
         </div>
       );
     }
