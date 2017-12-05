@@ -94,7 +94,7 @@ class Graph extends Component {
                     text: this.props.data.scenarioName
                 },
                 tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    pointFormat: '<b>{point.y}</b>'
                 },
                 plotOptions: {
                     pie: {
@@ -102,7 +102,7 @@ class Graph extends Component {
                         cursor: 'pointer',
                         dataLabels: {
                             enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            format: '<b>{point.name}</b>',
                             style: {
                                 color: 'black'
                             }
