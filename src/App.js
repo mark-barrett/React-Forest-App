@@ -37,8 +37,7 @@ class App extends Component {
     if(this.state.appIsOpen) {
       return (
         <div>
-          <Home language={this.language}/>
-          <Graphs /> 
+          <Home language={this.language}/> 
         </div>
       );
     }
