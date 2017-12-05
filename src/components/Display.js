@@ -158,13 +158,15 @@ class Display extends Component {
                 <div class="card">
                     <div class="card-body">
                     <div class="text-center"><h4>{this.props.regionName} - {this.props.timeString}</h4></div>
-                    {
-                        data[0].map(element => {
-                            return (
-                                <Graph data={element} number_of_graphs={data.length} />
-                            )
-                        })
-                    }
+                        <div className="row">
+                        {
+                            data[0].map(element => {
+                                return (
+                                    <Graph data={element} number_of_graphs={data[0].length} />
+                                )
+                            })
+                        }
+                        </div>
                     </div>
                 </div>
             </div>
