@@ -1,0 +1,27 @@
+.Graphvalues
+{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:400px;  /* adjust as per your needs */
+    height:400px;   /* adjust as per your needs */
+    margin-left:-200px;   /* negative half of width above */
+    margin-top:-200px;   /* negative half of height above */
+}
+
+#chartTypeButtonBar {
+    text-align: center;
+    float: right;
+    background-color: green;
+    text-decoration-color: green;
+}
+
+.centered {  
+  position:fixed;
+  z-index: 100;  
+  top:50%;  
+  left:50%;  
+  margin:-100px 0 0 -100px;  
+  width:200px;  
+  height:200px;  
+}  
