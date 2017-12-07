@@ -9,9 +9,12 @@ import language from './Language';
 
 
 import Graphs from './components/Graphs';
+import BarGraph from './components/BarGraph';
 import Graphselector from './components/Graphselector'
 
 class App extends Component {
+
+  scenarioAmount = 3;
 
   constructor(props) {
     super(props);
@@ -27,9 +30,41 @@ class App extends Component {
 
     // Instantiate the language class for use on the app.
     this.language = new language("English");
-    //this.chartSelection = "pie"; //Default chart
-    
-  }
+
+    this.series = [{
+      name: 'Mustikkasato',
+      data: [1, 4, 3]
+      }, {
+      name: 'Hiilinielu',
+      data: [6.9, 4, 2]
+      }, {
+      name: 'Suurin nettotulo',
+      data: [8, 4, 3]
+  }];
+
+
+    this.data = [{
+        name: 'Microsoft Internet Explorer',
+        y: 56.33
+        }, {
+        name: 'Chrome',
+        y: 24.03,
+        sliced: true,
+        selected: true
+        }, {
+        name: 'Firefox',
+        y: 10.38
+        }, {
+        name: 'Safari',
+        y: 4.77
+        }, {
+        name: 'Opera',
+        y: 0.91
+        }, {
+        name: 'Proprietary', 
+        y: 0.2
+      }]
+}
 
   componentDidUpdate()
   {
@@ -48,15 +83,33 @@ class App extends Component {
   }
 
   render() {
+    var indents = [];
 
     // If the app is open the render the main app component
     if(this.state.appIsOpen) {
-      return (
+      switch(this.state.chartSelection)
+      {
+        case 'single':
+        indents = <Graphs series = { this.series }/>;
+        break;
+        case 'multiple':
+        //pass data here from array? 
+        for(var i = 0; i < this.scenarioAmount; i++) {
+          indents.push(<Graphs series = { this.series }/> );
+          } 
+        break;
+        case 'bar':
+        indents = <BarGraph series = { this.series }/>;
+        break;
+        case 'table':
+        //indets = <Table> something <Table>
+        break;
+      }
+      return(
         <div>
-          <Home language={this.language}/>
-          <Graphselector changeChart={this.changeChart}/>
-          {this.chartSelection}
-          <Graphs chartSelection={this.state.chartSelection}/> 
+        <Home language={this.language}/>
+        {indents}
+        <Graphselector changeChart={this.changeChart}/>
         </div>
       );
     }

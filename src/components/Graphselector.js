@@ -13,11 +13,11 @@ render()
 {
             return(
                 <div className="chartTypeButtonBar">Chart type:
-                        <button onClick={ () => this.props.changeChart("pie") }>Pie Chart</button>
-                        <button onClick={ () => this.props.changeChart("area") }>Area Chart</button>
-                        <button onClick={ () => this.props.changeChart("line") }>Line Chart</button>
-                        <button onClick={ () => this.props.changeChart("column") }>Column Chart</button>
+                        <button onClick={ () => this.props.changeChart("single") }>Single Chart</button>
+                        <button onClick={ () => this.props.changeChart("multiple") }>Multiple Chart</button>
                         <button onClick={ () => this.props.changeChart("bar") }>Bar Chart</button>
+                        <button onClick={ () => this.props.changeChart("column") }>Column Chart</button>
+                        <button onClick={ () => this.props.changeChart("line") }>Line Chart</button>
                         <button onClick={ () => this.props.changeChart("polar") }>Polar Chart</button>
                 </div>
             )

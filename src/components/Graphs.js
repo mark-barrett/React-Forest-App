@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import {Bootstrap, ToggleButton, MenuItem, ToggleButtonGroup, ButtonToolbar} from 'react-bootstrap';
-//import 'highcharts-more';
 const ReactHighcharts = require('react-highcharts')
 const ReactHighchartsexporting = require('highcharts-exporting')
-//var Highcharts = require('react-highcharts');
 
 class Graphs extends Component{
 
     chartTitle = 'This is a test chart' //Title for chart
     config; //config that we pass to the reacthighcharts
+    data;
 
     constructor(props)
     {
@@ -17,12 +16,72 @@ class Graphs extends Component{
         global.Highcharts = require('highcharts');
         require('highcharts/modules/exporting')(global.Highcharts);
         global.HighchartsMore = require('highcharts-more');        
+
+        this.data = this.props.data;
     }
 
     render() {
 
-        console.log("rendering");
+        console.log("Graphs: rendering");
+        this.config = {
+        chart: {
+            polar: true
+        },
+    
+        title: {
+            text: 'Scenario name'
+        },
+    
+        pane: {
+            startAngle: 0,
+            endAngle: 360
+        },
+    
+        xAxis: {
+            tickInterval: 45,
+            min: 0,
+            max: 360,
+            labels: {
+                formatter: function () {
+                    return this.value + '°';
+                }
+            }
+        },
+    
+        yAxis: {
+            min: 0
+        },
+    
+        plotOptions: {
+            series: {
+                pointStart: 0,
+                pointInterval: 45
+            },
+            column: {
+                pointPadding: 0,
+                groupPadding: 0
+            }
+        },
+        series: this.props.series
+    /*
+        series: [{
+            type: 'column',
+            name: 'Column',
+            data: [8, 7, 6, 5, 4, 3, 2, 1],
+            pointPlacement: 'between'
+        }, {
+            type: 'line',
+            name: 'Line',
+            data: [1, 2, 3, 4, 5, 6, 7, 8]
+        }, {
+            type: 'area',
+            name: 'Area',
+            data: [1, 8, 2, 7, 3, 6, 4, 5]
+        }]
+        */
+    };
 
+        /*
         if(this.props.chartSelection === 'polar')
         {
             console.log("polar chosen");
@@ -82,8 +141,11 @@ class Graphs extends Component{
             }]
         };
         }
+        
+
+        
         else{
-        /*const*/ this.config = {
+        this.config = {
 
             chart: {
                 plotBackgroundColor: null,
@@ -136,17 +198,12 @@ class Graphs extends Component{
                     y: 0.2
                 }]
             }]
-
-            
-
-        };}
-
+        };} */
         return(
-
-            <div >
-                <ReactHighcharts config = { this.config }></ReactHighcharts>
-            </div>
-        )
+                        <div >
+                            <ReactHighcharts config = { this.config }></ReactHighcharts>
+                        </div> 
+                    )
     }
 }
 
