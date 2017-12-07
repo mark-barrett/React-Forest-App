@@ -4,15 +4,23 @@ import Welcome from './components/Welcome';
 import Contact from './components/Contact';
 import Home from './components/Home';
 import language from './Language';
-
-
+import { instanceOf } from 'prop-types';
+import { withCookies, Cookies } from 'react-cookie';
 
 import Graphs from './components/Graphs';
 
 class App extends Component {
 
+  static propTypes = {
+    cookies: instanceOf(Cookies).isRequired
+  };
+
   constructor(props) {
     super(props);
+
+    const { cookies } = this.props;
+
+    console.log(cookies.get('language'));
 
     this.state = {
       appIsOpen: true
@@ -22,7 +30,9 @@ class App extends Component {
     this.openApp = this.openApp.bind(this);
 
     // Instantiate the language class for use on the app.
-    this.language = new language("English");
+    this.language = new language(cookies.get('language'));
+
+    this.changeLanguage = this.changeLanguage.bind(this);
   }
 
   openApp() {
@@ -31,13 +41,20 @@ class App extends Component {
     }
   }
 
+  changeLanguage(event) {
+    const { cookies } = this.props;
+
+    cookies.set('language', event.target.value);
+    this.language.setLanguage = cookies.get('language');
+  }
+
   render() {
 
     // If the app is open the render the main app component
     if(this.state.appIsOpen) {
       return (
         <div>
-          <Home language={this.language}/> 
+          <Home language={this.language} changeLanguage={this.changeLanguage}/> 
         </div>
       );
     }
@@ -52,4 +69,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withCookies(App);

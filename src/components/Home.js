@@ -88,7 +88,7 @@ class Home extends Component {
             if(this.state.displayIndicators === false) {
                 return (
                     <div>
-                        <TopNav language={this.props.language} openMail={this.openMail}/>
+                        <TopNav language={this.props.language} openMail={this.openMail} changeLanguage={this.props.changeLanguage}/>
 
                         <div className="row">
                             <div className="col-md-3">
@@ -106,7 +106,7 @@ class Home extends Component {
             else {
                 return (
                     <div>
-                        <TopNav language={this.props.language} openMail={this.openMail}/>
+                        <TopNav language={this.props.language} openMail={this.openMail} changeLanguage={this.props.changeLanguage}/>
                         <div className="row">
                             <div className="col-md-3">
                                 <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet}/>

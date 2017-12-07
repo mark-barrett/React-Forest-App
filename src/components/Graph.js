@@ -4,7 +4,7 @@ const ReactHighchartsexporting = require('highcharts-exporting')
 
 class Graph extends Component {
 
-    chartChoice = 'bar';
+    chartChoice = 'column';
 
     constructor(props) {
         super(props);
@@ -35,7 +35,7 @@ class Graph extends Component {
                 graph_data.push(new_obj);
             })
 
-            console.log(graph_data);
+            console.log(this.props.data);
 
             if (this.chartChoice === 'polar') {
                 console.log("polar chosen");

@@ -1,10 +1,13 @@
 class Language {
 
+    setLanguage = ""
+
     constructor(language) {
+        this.setLanguage = language;
         // Create empty object of phrases
         let phrases = {}
         // If English is chosen when Language object is created then populate with English
-        if (language === "English") {
+        if (this.setLanguage === "English") {
 
             phrases = {
                 appName: "Forest Indicator App",
@@ -25,11 +28,12 @@ class Language {
                 gatherProducts: "Gather products",
                 diversity: "Diversity",
                 coal: "Coal",
-                others: "Others"
+                others: "Others",
+                info: "This web application is written using the React library. The source code to this application can be found"
             }
         }
         // If Finnish is chosen when Language is created populate with English
-        else if (language === "Finnish") {
+        else if (this.setLanguage === "Finnish") {
             phrases = {
                 appName: "Metsämittari Sovellus",
                 team: "Tiimi: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen & Joshua O'Neill",

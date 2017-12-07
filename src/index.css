@@ -9001,3 +9001,51 @@ table-success, table-info, table-warning, table-danger,
     overflow-x: auto;
     white-space: nowrap;
 }
+
+.animate {
+    position: relative;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-iteration-count: 2; /* Safari 4.0 - 8.0 */
+    -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;    
+}
+
+.treeanimate {
+    position: relative;
+    -webkit-animation-name: tree; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-iteration-count: 2; /* Safari 4.0 - 8.0 */
+    -webkit-animation-direction: alternate; /* Safari 4.0 - 8.0 */
+    animation-name: tree;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;   
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    0%   {left:1500px; top:0px;}
+    25%  {left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {left:1500px; top:0px;}
+    25%  {left:0px; top:0px;}
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes tree {
+    0%   {left:-500px; top:0px;}
+    25%  {left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes tree {
+    0%   {left:-500px; top:0px;}
+    25%  {left:0px; top:0px;}
+}
