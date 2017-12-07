@@ -25,7 +25,11 @@ class Language {
                 gatherProducts: "Gather products",
                 diversity: "Diversity",
                 coal: "Coal",
-                others: "Others"
+                others: "Others",
+                emailAddress: "Address",
+                emailSubject: "Subject",
+                emailBody: "Text",
+                send: "Send"
             }
         }
         // If Finnish is chosen when Language is created populate with English
@@ -49,7 +53,11 @@ class Language {
                 gatherProducts: "Keruutuotteet",
                 diversity: "Monimuotoisuus",
                 coal: "Hiili",
-                others: "Muut"
+                others: "Muut",
+                emailAddress: "Osoite",
+                emailSubject: "Otsikko",
+                emailBody: "Teksti",
+                send: "Lähetä"
             }
         }
 

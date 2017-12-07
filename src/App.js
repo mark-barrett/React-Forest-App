@@ -15,14 +15,14 @@ class App extends Component {
     super(props);
 
     this.state = {
-      appIsOpen: true
+      appIsOpen: false
     }
 
     // Bind the openApp function to have this
     this.openApp = this.openApp.bind(this);
 
     // Instantiate the language class for use on the app.
-    this.language = new language("Finnish");
+    this.language = new language("English");
   }
 
   openApp() {
