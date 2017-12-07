@@ -8985,3 +8985,19 @@ table-success, table-info, table-warning, table-danger,
   height: 100%;
   margin: 0px;
 }
+
+.verticaltext {
+    transform: rotate(-90deg);
+    transform-origin: right, top;
+    -ms-transform: rotate(-90deg);
+    -ms-transform-origin:right, top;
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin:right, top;
+    position: absolute; 
+}
+
+.scroll-x {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}

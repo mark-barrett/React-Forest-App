@@ -17,10 +17,11 @@ class Home extends Component {
             mailIsOpen : false,
             indicatorIDs: [],
             scenarioIDs: [],
-            timePeriodIDs: [],
+            timePeriodIDs: "",
             regionName: "",
             dataSet: [],
-            timePeriodString: ""
+            timePeriodString: "",
+            timePeriodIsSet: false
         }
 
         this.openMail = this.openMail.bind(this);
@@ -56,10 +57,11 @@ class Home extends Component {
 
     timesChanged(timePeriodIDs) {
         this.setState({timePeriodIDs: timePeriodIDs});
+        this.setState({timePeriodIsSet: true});
 
         // Now get the time date so it can be displayed on the next component
         for(let i=0; i<this.state.dataSet[0].timePeriods.length; i++) {
-            if(this.state.dataSet[0].timePeriods[i].id === this.state.timePeriodIDs) {
+            if(this.state.dataSet[0].timePeriods[i].id == this.state.timePeriodIDs) {
                 this.setState({ timePeriodString: this.state.dataSet[0].timePeriods[i].yearStart + "-" + this.state.dataSet[0].timePeriods[i].yearEnd})
             }
         }
