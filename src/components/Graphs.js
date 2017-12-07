@@ -8,7 +8,7 @@ const ReactHighchartsexporting = require('highcharts-exporting')
 class Graphs extends Component{
 
     chartTitle = 'This is a test chart' //Title for chart
-    config;
+    config; //config that we pass to the reacthighcharts
 
     constructor(props)
     {
@@ -18,8 +18,6 @@ class Graphs extends Component{
         require('highcharts/modules/exporting')(global.Highcharts);
         global.HighchartsMore = require('highcharts-more');        
     }
-
- 
 
     render() {
 
