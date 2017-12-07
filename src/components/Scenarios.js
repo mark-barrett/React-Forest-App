@@ -19,6 +19,8 @@ class Scenarios extends Component {
             values: [],
             displayTimePeriods: false
         }
+
+        this.scenarioChanged = this.scenarioChanged.bind(this);
     }
 
     componentDidMount() {
@@ -26,6 +28,8 @@ class Scenarios extends Component {
         // Get all scenarios based on the state passed in as a prop
         scenarios.getScenarioCollection(this.state.scenarioCollectionID, this.state.regionID)
         .then(result => {
+            // Send this result set to the home component
+            this.props.getDataSet(result);
             // Take this result and iterate over it
             result.map(element => {
                 // Iterate over the scenarios and put them into an array
@@ -48,6 +52,21 @@ class Scenarios extends Component {
         });
     }
 
+    scenarioChanged(event) {
+        // We need to get the options selected and put them into an array.
+        // If they are unselected or changed that will be tracked too
+        let newScenarioIDs = event.target.options;
+        let value = []
+
+        for (var i = 0, l = newScenarioIDs.length; i < l; i++) {
+            if (newScenarioIDs[i].selected) {
+                value.push(newScenarioIDs[i].value);
+            }
+        }
+
+        this.props.scenariosChanged(value);
+    }
+
     render () {
 
         if(this.state.displayTimePeriods === false) {
@@ -67,25 +86,25 @@ class Scenarios extends Component {
                 <div>
                     <hr />
                     {this.props.language.scenarios}
-                    <select className="form-control" id="scenario" value={this.state.value} multiple>
+                        <select className="form-control" id="scenario" value={this.state.value} multiple onChange={this.scenarioChanged}>
                         {this.state.scenariosList}
                     </select>
 
                     <br />
 
-                    <TimePeriod language={this.props.language} timePeriods={this.state.timePeriods} />
+                        <TimePeriod language={this.props.language} timePeriods={this.state.timePeriods} timesChanged={this.props.timesChange}/>
                 </div>
                 :
                 <div>
                     <hr />
                     {this.props.language.scenarios}
-                    <select className="form-control" id="scenario" value={this.state.value} multiple>
+                    <select className="form-control" id="scenario" value={this.state.value} multiple onChange={this.scenarioChanged}>
                         {this.state.scenariosList}
                     </select>
 
                     <br />
 
-                    <TimePeriod language={this.props.language} timePeriods={this.state.timePeriods} />
+                        <TimePeriod language={this.props.language} timePeriods={this.state.timePeriods} timesChanged={this.props.timesChanged}/>
 
                 </div>
             )

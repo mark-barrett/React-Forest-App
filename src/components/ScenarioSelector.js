@@ -80,8 +80,16 @@ class ScenarioSelector extends Component {
     getScenarioCollections(event) {
 
         if(event.target.value != this.props.language.chooseRegion) {
+
             let regionID = event.target.value;
             let filteredScenarios = []
+
+            this.state.regions.map(element => {
+                if(regionID == element.props.value) {
+                    console.log(element.props.children);
+                    this.props.regionName(element.props.children);
+                }
+            })
 
             // Filter the scenarioCollections so that only the ones that are matching exist
             this.state.scenarioCollections.map(result => {
@@ -237,7 +245,7 @@ class ScenarioSelector extends Component {
                                     {this.state.scenarioCollections}
                                 </select>
                             </div>
-                            <Scenarios language={this.props.language} scenarioRegion={this.state.scenarioRegionSelection} displayIndicators={this.displayIndicators}/>
+                            <Scenarios language={this.props.language} scenarioRegion={this.state.scenarioRegionSelection} displayIndicators={this.displayIndicators} scenariosChanged={this.props.scenariosChanged} timesChanged={this.props.timesChanged} getDataSet={this.props.getDataSet}/>
                         </div>
                     </div>
                 </div>

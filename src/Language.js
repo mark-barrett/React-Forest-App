@@ -5,21 +5,27 @@ class Language {
         let phrases = {}
         // If English is chosen when Language object is created then populate with English
         if (language === "English") {
+
             phrases = {
                 appName: "Forest Indicator App",
                 team: "Team 12: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen & Joshua O'Neill",
                 openApp: "Open App",
                 scenarioSelector: "Scenario Selector",
-                regionLevel: "Region Level",
+                regionLevel: "Region level",
                 region: "Region",
-                scenarioCollection: "Scenario Collection",
+                scenarioCollection: "Scenario collection",
                 scenarios: "Scenarios",
                 chooseRegionLevel: "Choose region level",
                 chooseRegion: "Choose region",
                 chooseScenarioCollection: "Choose scenario collection",
                 timePeriod: "Time Period",
                 chooseTimePeriod: "Choose time period",
-                chooseIndicator: "Choose Indicator"
+                chooseIndicator: "Choose Indicator",
+                timberProduction: "Timber production",
+                gatherProducts: "Gather products",
+                diversity: "Diversity",
+                coal: "Coal",
+                others: "Others"
             }
         }
         // If Finnish is chosen when Language is created populate with English
@@ -38,7 +44,12 @@ class Language {
                 chooseScenarioCollection: "Valitse skenaariokokoelma",
                 timePeriod: "Ajankohta",
                 chooseTimePeriod: "Valitse ajankohta",
-                chooseIndicator: "Indikaattoreiden valinta"
+                chooseIndicator: "Indikaattoreiden valinta",
+                timberProduction: "Puuntuotanto",
+                gatherProducts: "Keruutuotteet",
+                diversity: "Monimuotoisuus",
+                coal: "Hiili",
+                others: "Muut"
             }
         }
 

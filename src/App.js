@@ -5,20 +5,24 @@ import Contact from './components/Contact';
 import Home from './components/Home';
 import language from './Language';
 
+
+
+import Graphs from './components/Graphs';
+
 class App extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      appIsOpen: false
+      appIsOpen: true
     }
 
     // Bind the openApp function to have this
     this.openApp = this.openApp.bind(this);
 
     // Instantiate the language class for use on the app.
-    this.language = new language("English");
+    this.language = new language("Finnish");
   }
 
   openApp() {
@@ -28,11 +32,12 @@ class App extends Component {
   }
 
   render() {
+
     // If the app is open the render the main app component
     if(this.state.appIsOpen) {
       return (
         <div>
-          <Home language={this.language}/>
+          <Home language={this.language}/> 
         </div>
       );
     }
