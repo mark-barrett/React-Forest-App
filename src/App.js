@@ -17,7 +17,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      appIsOpen: true
+      appIsOpen: true,
+      chartSelection: ""
     }
 
     // Bind the openApp function to have this
@@ -26,8 +27,13 @@ class App extends Component {
 
     // Instantiate the language class for use on the app.
     this.language = new language("English");
-    this.chartSelection = "pie"; //Default chart
+    //this.chartSelection = "pie"; //Default chart
     
+  }
+
+  componentDidUpdate()
+  {
+    console.log("updating");
   }
 
   openApp() {
@@ -36,8 +42,9 @@ class App extends Component {
 
   changeChart(chart) {
     console.log(chart);
-    this.chartSelection = chart;
-    this.forceUpdate();
+    this.setState({chartSelection: chart});
+    //this.forceUpdate();
+    console.log(this.chartSelection);
   }
 
   render() {
@@ -48,7 +55,8 @@ class App extends Component {
         <div>
           <Home language={this.language}/>
           <Graphselector changeChart={this.changeChart}/>
-          <Graphs chartSelection={this.chartSelection}/> 
+          {this.chartSelection}
+          <Graphs chartSelection={this.state.chartSelection}/> 
         </div>
       );
     }

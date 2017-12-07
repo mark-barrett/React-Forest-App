@@ -6,8 +6,7 @@ const ReactHighchartsexporting = require('highcharts-exporting')
 //var Highcharts = require('react-highcharts');
 
 class Graphs extends Component{
-    
-    chartChoice =  'pie'; //Default choice is Pie chart
+
     chartTitle = 'This is a test chart' //Title for chart
     config;
 
@@ -20,16 +19,13 @@ class Graphs extends Component{
         global.HighchartsMore = require('highcharts-more');        
     }
 
-    componentDidUpdate()
-    {
-        this.chartChoice = this.props.chartSelection;
-    }
+ 
 
     render() {
 
         console.log("rendering");
 
-        if(this.chartChoice === 'polar')
+        if(this.props.chartSelection === 'polar')
         {
             console.log("polar chosen");
             this.config = {
@@ -95,7 +91,7 @@ class Graphs extends Component{
                 plotBackgroundColor: null,
                 plotBorderWidth: null, 
                 plotShadow: false, //if true there is a border
-                type: this.chartChoice 
+                type: this.props.chartSelection 
             },
             title: {
                 text: this.chartTitle
