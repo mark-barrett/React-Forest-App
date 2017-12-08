@@ -123,7 +123,7 @@ class Display extends Component {
                                     )
                                 })
                             }
-                            <Table data={data[0]} display={this.state.display}/>
+                            <Table data={data[0]} display={this.state.display} language={this.props.language}/>
                         </div>
                     </div>
                 </div>

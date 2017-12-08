@@ -3,10 +3,16 @@ about regions.
 */
 import axios from 'axios';
 
-function getRegionLevels() {
+
+function getRegionLevels(language) {
+    // Config variable to hold headers.
+    var config = {
+        headers: { 'Accept-Language': language === "English" ? 'en' : 'fi' }
+    };
+
     return new Promise((resolve, reject) => {
         // Make HTTP GET call to the regionLevels endpoint
-        axios.get("http://melatupa.azurewebsites.net/regionLevels")
+        axios.get("http://melatupa.azurewebsites.net/regionLevels", config)
         // Then when it has completed
         .then(results => {
             resolve(results.data);
@@ -19,10 +25,15 @@ function getRegionLevels() {
     });
 }
 
-function getRegions(regionLevelID) {
+function getRegions(regionLevelID, language) {
+    // Config variable to hold headers.
+    var config = {
+        headers: { 'Accept-Language': language === "English" ? 'en' : 'fi' }
+    };
+
     return new Promise((resolve, reject) => {
         // Make the HTTP call to the regions endpoint
-        axios.get("http://melatupa.azurewebsites.net/regionLevels/"+regionLevelID+"/regions")
+        axios.get("http://melatupa.azurewebsites.net/regionLevels/"+regionLevelID+"/regions", config)
         // Then when it has completed
         .then(results => {
             resolve(results.data);

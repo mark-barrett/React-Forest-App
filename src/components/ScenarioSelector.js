@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import regions from '../data/Regions';
 import Scenarios from '../components/Scenarios';
+import { instanceOf } from 'prop-types';
+import { withCookies, Cookies } from 'react-cookie';
 
 class ScenarioSelector extends Component {
 
@@ -25,8 +27,11 @@ class ScenarioSelector extends Component {
     }
 
     componentDidMount() {
+
+        const { cookies } = this.props;
+
         // We must get the regionLevels so the user can choose from them.
-        regions.getRegionLevels().then(result => {
+        regions.getRegionLevels(cookies.get('language')).then(result => {
             // Map it onto the select input
             this.setState({regionLevels: result.map(element => {
                 return <option key={element.id} value={element.id}>{element.name}</option>;
@@ -36,6 +41,8 @@ class ScenarioSelector extends Component {
 
     // Get regions method to get the list of regions
     getRegions(event) {
+        const { cookies } = this.props;
+        
         // If the choose region level selection is chosen
         if (event.target.value != this.props.language.chooseRegionLevel) {
 
@@ -44,7 +51,7 @@ class ScenarioSelector extends Component {
             let regionLevelID = event.target.value;
 
             // Now that we have the value of what was selected, make a call for the regions.
-            regions.getRegions(regionLevelID).then(result => {
+            regions.getRegions(regionLevelID, cookies.get('language')).then(result => {
 
                 result.map(element => {
 
@@ -253,4 +260,4 @@ class ScenarioSelector extends Component {
     }
 }
 
-export default ScenarioSelector
+export default withCookies(ScenarioSelector)

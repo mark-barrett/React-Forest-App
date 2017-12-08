@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 import language from '../Language';
+import Contact from '../components/Contact';
 import { CookiesProvider } from 'react-cookie';
+import { instanceOf } from 'prop-types';
+import { withCookies, Cookies } from 'react-cookie';
 
 class TopNav extends Component {
 
     render() {
+        const { cookies } = this.props;
+
+        let language = cookies.get('language');
+
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-light bg-success" style={{ padding: 2 }}>
@@ -20,14 +27,35 @@ class TopNav extends Component {
                                 <i class="fa fa-info"></i>
                             </button>
                             &nbsp;
-                            <button className="btn btn-light" onClick={this.props.openMail}><i className="fa fa-envelope"></i></button>
+                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#mailModal">
+                                <i class="fa fa-envelope"></i>
+                            </button>
+
+                            <div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="infoModal" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Contact</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <Contact language={this.language}/>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             &nbsp;
                             <form className="form-inline my-2 my-lg-0" onChange={this.props.changeLanguage}>
                                 <div className="form-group">
-                                    <select className="form-control" id="exampleFormControlSelect1">
-                                        <option value="English">English</option>
-                                        <option value="Finnish">Finnish</option>
-                                    </select>
+                                        {language === "English"
+                                            ? <select className="form-control" id="exampleFormControlSelect1"><option value="English" selected>English</option> <option value="Finnish">Finnish</option></select>
+                                            : <select className="form-control" id="exampleFormControlSelect1"><option value="English">English</option> <option value="Finnish" selected>Finnish</option></select>
+                                        }
                                 </div>
                             </form>
                         </div>
@@ -59,4 +87,4 @@ class TopNav extends Component {
     }
 }
 
-export default TopNav
+export default withCookies(TopNav)
