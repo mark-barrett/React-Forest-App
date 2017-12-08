@@ -9,6 +9,10 @@ import { withCookies, Cookies } from 'react-cookie';
 
 import Graphs from './components/Graphs';
 
+
+
+import Graphs from './components/Graphs';
+
 class App extends Component {
 
   static propTypes = {

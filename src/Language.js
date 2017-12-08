@@ -29,6 +29,10 @@ class Language {
                 diversity: "Diversity",
                 coal: "Coal",
                 others: "Others",
+                emailAddress: "Address",
+                emailSubject: "Subject",
+                emailBody: "Text",
+                send: "Send",
                 info: "This web application is written using the React library. The source code to this application can be found"
             }
         }
@@ -53,7 +57,12 @@ class Language {
                 gatherProducts: "Keruutuotteet",
                 diversity: "Monimuotoisuus",
                 coal: "Hiili",
-                others: "Muut"
+                others: "Muut",
+                emailAddress: "Osoite",
+                emailSubject: "Otsikko",
+                emailBody: "Teksti",
+                send: "Lähetä",
+                info: "Tämä web-sovellus on kirjoitettu React-kirjastolla. Tämän sovelluksen lähdekoodi löytyy"
             }
         }
 
