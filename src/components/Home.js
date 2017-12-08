@@ -25,6 +25,7 @@ class Home extends Component {
         }
 
         this.openMail = this.openMail.bind(this);
+        this.openHome = this.openHome.bind(this);
         this.displayIndicators = this.displayIndicators.bind(this);
         this.indicatorsChanged = this.indicatorsChanged.bind(this);
         this.scenariosChanged = this.scenariosChanged.bind(this);
@@ -33,10 +34,14 @@ class Home extends Component {
         this.getDataSet = this.getDataSet.bind(this);
     }
 
-    openMail(){
+    openMail() {
         if (this.state.mailIsOpen === false) {
             this.setState({mailIsOpen: true})
         }
+    }
+
+    openHome() {
+        this.setState({mailIsOpen: false})
     }
   
     displayIndicators(_indicatorCategories) {
@@ -80,7 +85,8 @@ class Home extends Component {
         if (this.state.mailIsOpen) {
             return (
                 <div>
-                    <Contact language={this.language}/>
+                    <TopNav language={this.props.language} openHome={this.openHome}/>
+                    <Contact language={this.props.language}/>
                 </div>
             )
         }

@@ -6,18 +6,18 @@ class Contact extends Component {
         return (
             <div className="container">
                 <div className="form-group row">
-                    <label className="col-sm-1 col-form-label">Address</label>
+                    <label className="col-sm-1 col-form-label">{this.props.language.emailAddress}</label>
                     <input className="col-sm-4" name="inputEmail" id="inputEmail" placeholder="email@example.com"></input>
                 </div>
                 <div className="form-group row">
-                    <label className="col-sm-1 col-form-label">Subject</label>
+                    <label className="col-sm-1 col-form-label">{this.props.language.emailSubject}</label>
                     <input className="col-sm-3" name="inputSubject" id="inputSubject"></input>
                 </div>
                 <div className="form-group row">
-                    <label className="col-sm-1 col-form-label">Text</label>
+                    <label className="col-sm-1 col-form-label">{this.props.language.emailBody}</label>
                     <textarea className="col-sm-5" name="inputText" id="inputText" rows="6"></textarea>
                 </div>
-                <button id="button2" className="btn btn-second" onClick={sendEmail}>Send</button>
+                <button id="button2" className="btn btn-second" onClick={sendEmail}>{this.props.language.send}</button>
             </div>                
         )
     }

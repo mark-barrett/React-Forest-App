@@ -2,6 +2,7 @@
   "name": "forest-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://diga2017-team12.appspot.com/",
   "dependencies": {
     "axios": "^0.17.1",
     "bootstrap": "^4.0.0-beta.2",
