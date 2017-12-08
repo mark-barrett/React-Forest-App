@@ -17,10 +17,11 @@ class Home extends Component {
             mailIsOpen : false,
             indicatorIDs: [],
             scenarioIDs: [],
-            timePeriodIDs: [],
+            timePeriodIDs: "",
             regionName: "",
             dataSet: [],
-            timePeriodString: ""
+            timePeriodString: "",
+            timePeriodIsSet: false
         }
 
         this.openMail = this.openMail.bind(this);
@@ -61,10 +62,11 @@ class Home extends Component {
 
     timesChanged(timePeriodIDs) {
         this.setState({timePeriodIDs: timePeriodIDs});
+        this.setState({timePeriodIsSet: true});
 
         // Now get the time date so it can be displayed on the next component
         for(let i=0; i<this.state.dataSet[0].timePeriods.length; i++) {
-            if(this.state.dataSet[0].timePeriods[i].id === this.state.timePeriodIDs) {
+            if(this.state.dataSet[0].timePeriods[i].id == this.state.timePeriodIDs) {
                 this.setState({ timePeriodString: this.state.dataSet[0].timePeriods[i].yearStart + "-" + this.state.dataSet[0].timePeriods[i].yearEnd})
             }
         }
@@ -92,7 +94,7 @@ class Home extends Component {
             if(this.state.displayIndicators === false) {
                 return (
                     <div>
-                        <TopNav language={this.props.language} openMail={this.openMail}/>
+                        <TopNav language={this.props.language} openMail={this.openMail} changeLanguage={this.props.changeLanguage}/>
 
                         <div className="row">
                             <div className="col-md-3">
@@ -110,7 +112,7 @@ class Home extends Component {
             else {
                 return (
                     <div>
-                        <TopNav language={this.props.language} openMail={this.openMail}/>
+                        <TopNav language={this.props.language} openMail={this.openMail} changeLanguage={this.props.changeLanguage}/>
                         <div className="row">
                             <div className="col-md-3">
                                 <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet}/>

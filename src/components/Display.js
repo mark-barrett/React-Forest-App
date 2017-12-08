@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Graph from '../components/Graph'
+import Table from '../components/Table';
 
 class Display extends Component {
 
@@ -12,8 +13,15 @@ class Display extends Component {
             timePeriodIDs: "",
             dataSet: [],
             parsedData: [],
-            html: []
+            html: [],
+            display: "graph"
         }
+
+        this.changeDisplay = this.changeDisplay.bind(this);
+    }
+
+    changeDisplay(event) {
+        this.setState({display: event.target.value});
     }
 
     render () {
@@ -94,22 +102,29 @@ class Display extends Component {
                 }
             }),
         ]
-
-        // Loop through the indicators and put html for them
         
         return (
             <div>
                 <div class="card">
                     <div class="card-body">
                     <div class="text-center"><h4>{this.props.regionName} - {this.props.timeString}</h4></div>
+                    <div className="float-right">
+                    Display As: &nbsp;
+                        <select class="custom-select" onChange={this.changeDisplay}>
+                            <option selected value="graph">Graph</option>
+                            <option value="table">Table</option>
+                        </select>
+                    </div>
+                    <br/><br/>
                         <div className="row">
-                        {
-                            data[0].map(element => {
-                                return (
-                                    <Graph data={element} number_of_graphs={data[0].length} />
-                                )
-                            })
-                        }
+                            {
+                                data[0].map(element => {
+                                    return (
+                                        <Graph data={element} number_of_graphs={data[0].length} display={this.state.display}/>
+                                    )
+                                })
+                            }
+                            <Table data={data[0]} display={this.state.display}/>
                         </div>
                     </div>
                 </div>
