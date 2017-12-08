@@ -45,7 +45,7 @@ class App extends Component {
     const { cookies } = this.props;
 
     cookies.set('language', event.target.value);
-    this.language.setLanguage = cookies.get('language');
+    this.language.setLanguage = cookies.get('language');  
   }
 
   render() {

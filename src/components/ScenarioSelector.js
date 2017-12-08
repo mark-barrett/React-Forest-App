@@ -86,7 +86,6 @@ class ScenarioSelector extends Component {
 
             this.state.regions.map(element => {
                 if(regionID == element.props.value) {
-                    console.log(element.props.children);
                     this.props.regionName(element.props.children);
                 }
             })

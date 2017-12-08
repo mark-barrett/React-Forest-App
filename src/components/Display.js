@@ -70,15 +70,14 @@ class Display extends Component {
 
                 }
 
-                // Lets remove duplicates from the indicators array
-                indicators.map(i => {
-                    // Loop through indicators
-                    indicators.map((j, index) => {
-                        if (i.id == j.id) {
-                            indicators.pop(index);
+                // Remove duplicates
+                for(let x=0; x<indicators.length; x++) {
+                    for(let y=0; y<indicators.length; y++) {
+                        if(indicators[x].id === indicators[y].id) {
+                            indicators.splice(y, 1);
                         }
-                    })
-                })
+                    }
+                }
 
                 // Right here we can now get all the values for the indicators
                 indicators.map((i, index) => {
