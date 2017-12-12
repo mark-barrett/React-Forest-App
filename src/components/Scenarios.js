@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import scenarios from '../data/Scenarios';
 import TimePeriod from '../components/TimePeriod';
 import IndicatorCategories from '../components/IndicatorCategories';
+import { instanceOf } from 'prop-types';
+import { withCookies, Cookies } from 'react-cookie';
 
 class Scenarios extends Component {
 
@@ -24,9 +26,11 @@ class Scenarios extends Component {
     }
 
     componentDidMount() {
+        const { cookies } = this.props;
+
         let tempList = []
         // Get all scenarios based on the state passed in as a prop
-        scenarios.getScenarioCollection(this.state.scenarioCollectionID, this.state.regionID)
+        scenarios.getScenarioCollection(this.state.scenarioCollectionID, this.state.regionID, cookies.get('language'))
         .then(result => {
             // Send this result set to the home component
             this.props.getDataSet(result);
@@ -112,4 +116,4 @@ class Scenarios extends Component {
     }
 }
 
-export default Scenarios
+export default withCookies(Scenarios)
