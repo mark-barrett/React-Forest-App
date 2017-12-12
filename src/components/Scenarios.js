@@ -38,12 +38,12 @@ class Scenarios extends Component {
             result.map(element => {
                 // Iterate over the scenarios and put them into an array
                 this.setState({scenariosList: element.scenarios.map(item => {
-                    return <option key={item.id} value={item.id}>{item.description}</option>;
+                    return <option key={item.id} title={item.description} value={item.id}>{item.description}</option>;
                 })})
 
                 // Iterate over the time periods and put them into an array
                 this.setState({timePeriods: element.timePeriods.map(item => {
-                    return <option key={item.id} value={item.id}>{item.yearStart}-{item.yearEnd}</option>;
+                    return <option key={item.id} title={item.yearStart + "-" + item.yearEnd} value={item.id}>{item.yearStart}-{item.yearEnd}</option>;
                 })})
                 this.setState({displayTimePeriods: true});
 

@@ -77,11 +77,11 @@ class IndicatorCategories extends Component {
                 this.setState({
                     options: this.state.indicatorCategories.map(element => {
                         return (
-                            <div>
+                            <div title={element.description}>
                                 {element.name}
                                 <select className="form-control" id={element.id} value={this.state.value} multiple>
                                     {element.indicators.map(item => {
-                                        return <option value={item.id} key={item.id}>{item.name}</option>
+                                        return <option value={item.id} title={item.description} key={item.id}>{item.name}</option>
                                     })}
                                 </select>
                                 <br/>
