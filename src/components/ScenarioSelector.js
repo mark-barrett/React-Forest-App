@@ -34,7 +34,7 @@ class ScenarioSelector extends Component {
         regions.getRegionLevels(cookies.get('language')).then(result => {
             // Map it onto the select input
             this.setState({regionLevels: result.map(element => {
-                return <option key={element.id} value={element.id}>{element.name}</option>;
+                return <option key={element.id} title={element.description} value={element.id}>{element.name}</option>;
             })});
         })
     }
@@ -71,7 +71,7 @@ class ScenarioSelector extends Component {
                 this.setState({
                     regions: result.map(element => {
                         // We need to add each regions scenario collections to the list
-                        return <option key={element.id} value={element.id}>{element.name}</option>;
+                        return <option key={element.id} title={element.name} value={element.id}>{element.name}</option>;
                     })
                 });
             });

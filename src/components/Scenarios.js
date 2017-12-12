@@ -43,7 +43,7 @@ class Scenarios extends Component {
 
                 // Iterate over the time periods and put them into an array
                 this.setState({timePeriods: element.timePeriods.map(item => {
-                    return <option key={item.id} value={item.id}>{item.yearStart}-{item.yearEnd}</option>;
+                    return <option key={item.id} title={item.yearStart + "-" + item.yearEnd} value={item.id}>{item.yearStart}-{item.yearEnd}</option>;
                 })})
                 this.setState({displayTimePeriods: true});
 
