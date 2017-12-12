@@ -1,27 +1,32 @@
 import React, { Component } from 'react'
-import {Bootstrap, ToggleButton, MenuItem, ToggleButtonGroup, ButtonToolbar} from 'react-bootstrap';
 
-class Graphselector extends Component{
+class GraphSelector extends Component {
 
+    changeChart(event) {
+        console.log(event.target.value);
+    }
 
-constructor(props)
-{
-    super(props);
+    render () {
+        if (this.props.display === 'graph') {
+            return (
+                <div className="text-center">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" onClick={this.changeChart} value="pie" class="btn btn-success">Pie Chart</button>
+                        <button type="button" onClick={this.changeChart} class="btn btn-success">Line Chart</button>
+                        <button type="button" onClick={this.changeChart} class="btn btn-success">Column Chart</button>
+                        <button type="button" onClick={this.changeChart} class="btn btn-success">Bar Chart</button>
+                        <button type="button" onClick={this.changeChart} class="btn btn-success">Polar Chart</button>
+                    </div>
+                </div>
+            )
+        }
+        else {
+            return(
+                <div>
+                </div>
+            )
+        }
+    }
 }
 
-render()
-{
-    <div className="chartTypeButtonBar">Chart type:
-    <ButtonToolbar>
-        <ToggleButtonGroup type="radio" name="options" defaultValue={1} >
-            <ToggleButton onClick={ } value={1}>Pie Chart</ToggleButton>
-            <ToggleButton onClick={ } value={2}>Area Chart</ToggleButton>
-            <ToggleButton onClick={ } value={3}>Line Chart</ToggleButton>
-            <ToggleButton onClick={ }value={4}>Column Chart</ToggleButton>
-            <ToggleButton onClick={ }value={5}>Bar Chart</ToggleButton>
-            <ToggleButton onClick={ }value={6}>Polar Chart</ToggleButton>
-        </ToggleButtonGroup>
-    </ButtonToolbar>
-    </div>
-}
-}
+export default GraphSelector
