@@ -45,18 +45,18 @@ class TopNav extends Component {
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Help</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">{this.props.language.help}</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>This is quick help information regarding how this application operates. It gives a quick tutorial on how to select and display data.
+                                            <p>{this.props.language.helpText1}
                                                 <br/><br/>
                                                 <div className="row">
                                                     <div className="col-md-6">
-                                                        <h5>Selecting a Region Level</h5>
-                                                        <p>A region level can be selected on the left hand side of the app which. Choosing this will then prompt the next option to pop up</p>
+                                                        <h5>{this.props.language.helpText2}</h5>
+                                                        <p>{this.props.language.helpText3}</p>
                                                     </div>
                                                     <div className="col-md-6">
                                                         <img src={firstImage} width="100%" />
@@ -65,8 +65,8 @@ class TopNav extends Component {
                                                 <br/>
                                                 <div className="row">
                                                     <div className="col-md-6">
-                                                        <h5>Selecting a Scenario</h5>
-                                                        <p>After selecting a region, you can then select a scenario collection and then select multiple scenarios. Each scenario will be displayed as a seperate graph, whilst all scenarios will be in one table.</p>
+                                                        <h5>{this.props.language.helpText4}</h5>
+                                                        <p>{this.props.language.helpText5}</p>
                                                     </div>
                                                     <div className="col-md-6">
                                                         <img src={secondImage} width="100%" />
@@ -75,8 +75,8 @@ class TopNav extends Component {
                                                 <br/>
                                                 <div className="row">
                                                     <div className="col-md-6">
-                                                        <h5>Time Period</h5>
-                                                        <p>After selecting your desired scenarios you can then pick your time period. The application will then display the number of empty graphs based on your scenario collection. Once indicators are picked the graphs will populate.</p>
+                                                        <h5>{this.props.language.helpText6}</h5>
+                                                        <p>{this.props.language.helpText7}</p>
                                                     </div>
                                                     <div className="col-md-6">
                                                         <img src={thirdImage} width="100%" />
@@ -85,8 +85,8 @@ class TopNav extends Component {
                                                 <br />
                                                 <div className="row">
                                                     <div className="col-md-6">
-                                                        <h5>Indicators and Graphs</h5>
-                                                        <p>Once indicators are chosen on the right hand side, the graph will be populated with data. The grahs are dynamic meaning that you can add and remove indicators and these changes will reflect on the graphs instantly.</p>
+                                                        <h5>{this.props.language.helpText8}</h5>
+                                                        <p>{this.props.language.helpText9}</p>
                                                     </div>
                                                     <div className="col-md-6">
                                                         <img src={fourthImage} width="100%" />
@@ -95,8 +95,8 @@ class TopNav extends Component {
                                                 <br />
                                                 <div className="row">
                                                     <div className="col-md-6">
-                                                        <h5>Tables</h5>
-                                                        <p>The information can also be displayed in table form. It gives a break down of the same information, with each indicator being listed as a new row, with each scenarios values displayed in relevant columns.</p>
+                                                        <h5>{this.props.language.helpText10}</h5>
+                                                        <p>{this.props.language.helpText11}</p>
                                                     </div>
                                                     <div className="col-md-6">
                                                         <img src={fifthImage} width="100%" />
@@ -105,8 +105,8 @@ class TopNav extends Component {
                                                 <br />
                                                 <div className="row">
                                                     <div className="col-md-6">
-                                                        <h5>Save Information</h5>
-                                                        <p>Each graph and the table can all be saved to a PDF. These PDF's are then downloaded to your computer for future use.</p>
+                                                        <h5>{this.props.language.helpText12}</h5>
+                                                        <p>{this.props.language.helpText13}</p>
                                                     </div>
                                                     <div className="col-md-6">
                                                         <img src={sixthImage} width="100%" />
@@ -115,7 +115,7 @@ class TopNav extends Component {
                                             </p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +125,7 @@ class TopNav extends Component {
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Contact</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">{this.props.language.contact}</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -134,7 +134,7 @@ class TopNav extends Component {
                                             <Contact language={this.props.language}/>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -149,26 +149,7 @@ class TopNav extends Component {
                                 </div>
                             </form>
                         </div>
-
-                        <div className="modal fade bd-example-modal-sm" id="email" tabIndex="-1" role="dialog" aria-labelledby="email" aria-hidden="true">
-                            <div className="modal-dialog modal-lg" role="document">
-                                <div className="modal-content">
-                                    <div className="modal-header">
-                                        <h5 className="modal-title" id="exampleModalLabel">{this.props.language.sendEmail}</h5>
-                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div className="modal-body">
-                                    <Contact language={this.props.language}/>
-                                    </div>
-                                    <div className="modal-footer">
-                                        <button typ0e="button" className="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        
                         <div className="modal fade" id="infoModal" tabIndex="-1" role="dialog" aria-labelledby="infoModal" aria-hidden="true">
                             <div className="modal-dialog" role="document">
                                 <div className="modal-content">

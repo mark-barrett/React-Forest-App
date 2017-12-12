@@ -142,8 +142,8 @@ class ScenarioSelector extends Component {
                         <div className="card-body">
                             {this.props.language.regionLevel}
                             <div className="form-group">
-                                <select title="Hi1" className="form-control" id="regionLevel" onChange={this.getRegions} value={this.state.value}>
-                                    <option title="Hi2" value={this.props.language.chooseRegionLevel}>{this.props.language.chooseRegionLevel}</option>
+                                <select className="form-control" id="regionLevel" onChange={this.getRegions} value={this.state.value}>
+                                    <option value={this.props.language.chooseRegionLevel}>{this.props.language.chooseRegionLevel}</option>
                                     {this.state.regionLevels}
                                 </select>
                             </div>
