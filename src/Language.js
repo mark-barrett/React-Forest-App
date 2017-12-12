@@ -55,7 +55,13 @@ class Language {
                 helpText10: "Tables",
                 helpText11: "The information can also be displayed in table form. It gives a break down of the same information, with each indicator being listed as a new row, with each scenarios values displayed in relevant columns.",
                 helpText12: "Save Information",
-                helpText13: "Each graph and the table can all be saved to a PDF. These PDF's are then downloaded to your computer for future use"
+                helpText13: "Each graph and the table can all be saved to a PDF. These PDF's are then downloaded to your computer for future use",
+                chartType: "Chart Type",
+                pieChart: "Pie Chart",
+                lineChart: "Line Chart",
+                columnChart: "Column Chart",
+                barChart: "Bar Chart",
+                polarChart: "Polar Chart"
             }
         }
         // If Finnish is chosen when Language is created populate with English
@@ -106,7 +112,13 @@ class Language {
                 helpText10: "Taulukot",
                 helpText11: "Informaatiota voidaan myös näyttää taulukkomuodossa. Jokainen indikaattori on omalla rivillään ja skenaariot ovat omissa sarakkeissaan",
                 helpText12: "Tallenna informaatiota",
-                helpText13: "Kaikki kaaviot voidaan tallentaa koneellesi PDF-muodossa."
+                helpText13: "Kaikki kaaviot voidaan tallentaa koneellesi PDF-muodossa.",
+                chartType: "Kaavion tyyppi",
+                pieChart: "Ympyrädiagrammi",
+                lineChart: "Linjan Kaaviosta",
+                columnChart: "Pylväskaavio",
+                barChart: "Pylväsdiagrammi",
+                polarChart: "Polaarinen Kaavio"
             }
         }
 

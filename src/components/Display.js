@@ -134,7 +134,7 @@ class Display extends Component {
                             <Table data={data[0]} display={this.state.display} language={this.props.language}/>
                         </div>
                         <br/>
-                        <GraphSelector display={this.state.display} changeGraph={this.changeGraph}/>
+                        <GraphSelector display={this.state.display} changeGraph={this.changeGraph} language={this.props.language}/>
                     </div>
                 </div>
             </div>
