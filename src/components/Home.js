@@ -14,7 +14,6 @@ class Home extends Component {
         this.state = {
             displayIndicators: false,
             indicatorCategories: [],
-            mailIsOpen : false,
             indicatorIDs: [],
             scenarioIDs: [],
             timePeriodIDs: "",
@@ -24,24 +23,12 @@ class Home extends Component {
             timePeriodIsSet: false
         }
 
-        this.openMail = this.openMail.bind(this);
-        this.openHome = this.openHome.bind(this);
         this.displayIndicators = this.displayIndicators.bind(this);
         this.indicatorsChanged = this.indicatorsChanged.bind(this);
         this.scenariosChanged = this.scenariosChanged.bind(this);
         this.timesChanged = this.timesChanged.bind(this);
         this.regionName = this.regionName.bind(this);
         this.getDataSet = this.getDataSet.bind(this);
-    }
-
-    openMail() {
-        if (this.state.mailIsOpen === false) {
-            this.setState({mailIsOpen: true})
-        }
-    }
-
-    openHome() {
-        this.setState({mailIsOpen: false})
     }
   
     displayIndicators(_indicatorCategories) {
@@ -82,51 +69,41 @@ class Home extends Component {
     }
 
     render () {
-        if (this.state.mailIsOpen) {
+        if(this.state.displayIndicators === false) {
             return (
                 <div>
-                    <TopNav language={this.props.language} openHome={this.openHome}/>
-                    <Contact language={this.props.language}/>
+                    <TopNav language={this.props.language} openMail={this.openMail} changeLanguage={this.props.changeLanguage}/>
+
+                    <div className="row">
+                        <div className="col-md-3">
+                            <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet}/>
+                        </div>
+                        <div className="col-md-6">
+                        </div>
+                        <div className="col-md-3">
+
+                        </div>
+                    </div>
                 </div>
             )
         }
         else {
-            if(this.state.displayIndicators === false) {
-                return (
-                    <div>
-                        <TopNav language={this.props.language} openMail={this.openMail} changeLanguage={this.props.changeLanguage}/>
-
-                        <div className="row">
-                            <div className="col-md-3">
-                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet}/>
-                            </div>
-                            <div className="col-md-6">
-                            </div>
-                            <div className="col-md-3">
-
-                            </div>
+            return (
+                <div>
+                    <TopNav language={this.props.language} openMail={this.openMail} changeLanguage={this.props.changeLanguage}/>
+                    <div className="row">
+                        <div className="col-md-3">
+                            <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet}/>
+                        </div>
+                        <div className="col-md-6">
+                            <Display indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName} dataSet={this.state.dataSet} timeString={this.state.timePeriodString}/>
+                        </div>
+                        <div className="col-md-3">
+                            <IndicatorCategories language={this.props.language} indicatorCategories={this.state.indicatorCategories} indicatorsChanged={this.indicatorsChanged}/>
                         </div>
                     </div>
-                )
-            }
-            else {
-                return (
-                    <div>
-                        <TopNav language={this.props.language} openMail={this.openMail} changeLanguage={this.props.changeLanguage}/>
-                        <div className="row">
-                            <div className="col-md-3">
-                                <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet}/>
-                            </div>
-                            <div className="col-md-6">
-                                <Display indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName} dataSet={this.state.dataSet} timeString={this.state.timePeriodString}/>
-                            </div>
-                            <div className="col-md-3">
-                                <IndicatorCategories language={this.props.language} indicatorCategories={this.state.indicatorCategories} indicatorsChanged={this.indicatorsChanged}/>
-                            </div>
-                        </div>
-                    </div>
-                )
-            }
+                </div>
+            )
         }
     }
 }

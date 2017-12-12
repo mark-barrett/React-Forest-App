@@ -33,7 +33,11 @@ class Language {
                 emailSubject: "Subject",
                 emailBody: "Text",
                 send: "Send",
-                info: "This web application is written using the React library. The source code to this application can be found"
+                sendEmail: "Send email",
+                close: "Close",
+                info: "This web application is written using the React library. The source code to this application can be found",
+                here: "here",
+                information: "Information"
             }
         }
         // If Finnish is chosen when Language is created populate with English
@@ -62,7 +66,11 @@ class Language {
                 emailSubject: "Otsikko",
                 emailBody: "Teksti",
                 send: "Lähetä",
-                info: "Tämä web-sovellus on kirjoitettu React-kirjastolla. Tämän sovelluksen lähdekoodi löytyy"
+                sendEmail: "Lähetä sähköpostia",
+                close: "Sulje",
+                info: "Tämä web-sovellus on kirjoitettu React-kirjastolla. Tämän sovelluksen lähdekoodi löytyy",
+                here: "täältä",
+                information: "Informaatio"
             }
         }
 
