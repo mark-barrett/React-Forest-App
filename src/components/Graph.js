@@ -20,6 +20,11 @@ class Graph extends Component {
         this.forceUpdate();
     }
 
+    componentDidUpdate() {
+        this.chartChoice = this.props.graphType;
+        console.log(this.chartChoice);
+    }
+
     render () {
         if(this.props.display === 'graph') {
             let cols = this.props.number_of_graphs == 1 ? 12 : 6;
