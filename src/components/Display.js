@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Graph from '../components/Graph'
 import Table from '../components/Table';
-import GraphSelector from '../components/Graphselector';
+import GraphSelector from '../components/GraphSelector';
 
 class Display extends Component {
 
