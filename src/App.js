@@ -19,10 +19,9 @@ class App extends Component {
 
     const { cookies } = this.props;
 
-    console.log(cookies.get('language'));
-
     this.state = {
-      appIsOpen: true
+      appIsOpen: true,
+      language: []
     }
 
     // Bind the openApp function to have this
@@ -44,7 +43,8 @@ class App extends Component {
     const { cookies } = this.props;
 
     cookies.set('language', event.target.value);
-    this.language.setLanguage = cookies.get('language');
+    console.log(this.language = new language(cookies.get('language')));
+    this.setState({language: event.target.value});
   }
 
   render() {

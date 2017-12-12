@@ -70,7 +70,10 @@ class Language {
                 close: "Sulje",
                 info: "Tämä web-sovellus on kirjoitettu React-kirjastolla. Tämän sovelluksen lähdekoodi löytyy",
                 here: "täältä",
-                information: "Informaatio"
+                information: "Informaatio",
+                info: "Tämä web-sovellus on kirjoitettu React-kirjastolla. Tämän sovelluksen lähdekoodi löytyy",
+                pdfText: "Tämän PDF -tiedoston tuotti React Metsämittari Sovellus by Tiimi: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen & Joshua O'Neill"
+
             }
         }
 

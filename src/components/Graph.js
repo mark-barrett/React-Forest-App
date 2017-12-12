@@ -35,8 +35,6 @@ class Graph extends Component {
                 graph_data.push(new_obj);
             })
 
-            console.log(this.props.data);
-
             if (this.chartChoice === 'polar') {
                 console.log("polar chosen");
                 this.config = {
