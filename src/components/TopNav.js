@@ -115,7 +115,7 @@ class TopNav extends Component {
                                             </p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +125,7 @@ class TopNav extends Component {
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Contact</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">{this.props.language.contact}</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -134,7 +134,7 @@ class TopNav extends Component {
                                             <Contact language={this.props.language}/>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
                                         </div>
                                     </div>
                                 </div>
@@ -163,7 +163,7 @@ class TopNav extends Component {
                                     <Contact language={this.props.language}/>
                                     </div>
                                     <div className="modal-footer">
-                                        <button typ0e="button" className="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
+                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
                                     </div>
                                 </div>
                             </div>
