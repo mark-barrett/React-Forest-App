@@ -34,7 +34,7 @@ class ScenarioSelector extends Component {
         regions.getRegionLevels(cookies.get('language')).then(result => {
             // Map it onto the select input
             this.setState({regionLevels: result.map(element => {
-                return <option key={element.id} value={element.id}>{element.name}</option>;
+                return <option key={element.id} title={element.description} value={element.id}>{element.name}</option>;
             })});
         })
     }
@@ -71,7 +71,7 @@ class ScenarioSelector extends Component {
                 this.setState({
                     regions: result.map(element => {
                         // We need to add each regions scenario collections to the list
-                        return <option key={element.id} value={element.id}>{element.name}</option>;
+                        return <option key={element.id} title={element.name} value={element.id}>{element.name}</option>;
                     })
                 });
             });
@@ -102,7 +102,7 @@ class ScenarioSelector extends Component {
                 if(result.id == regionID) {
                     result.scenarioCollections.map(result => {
                         // Put the scenarioID and regionID in split with a dash
-                        filteredScenarios.push(<option key={result.id} value={result.id+"-"+regionID}>{result.name}</option>)
+                        filteredScenarios.push(<option key={result.id} title={result.description} value={result.id+"-"+regionID}>{result.name}</option>)
                     })
                 }
             });
@@ -142,8 +142,8 @@ class ScenarioSelector extends Component {
                         <div className="card-body">
                             {this.props.language.regionLevel}
                             <div className="form-group">
-                                <select className="form-control" id="regionLevel" onChange={this.getRegions} value={this.state.value}>
-                                    <option title={this.props.language.chooseRegionLevel} value={this.props.language.chooseRegionLevel}>{this.props.language.chooseRegionLevel}</option>
+                                <select title="Hi1" className="form-control" id="regionLevel" onChange={this.getRegions} value={this.state.value}>
+                                    <option title="Hi2" value={this.props.language.chooseRegionLevel}>{this.props.language.chooseRegionLevel}</option>
                                     {this.state.regionLevels}
                                 </select>
                             </div>

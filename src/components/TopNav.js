@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import language from '../Language';
-import Contact from '../components/Contact';
 import { CookiesProvider } from 'react-cookie';
 import Contact from './Contact';
 import { instanceOf } from 'prop-types';
