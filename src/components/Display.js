@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Graph from '../components/Graph'
 import Table from '../components/Table';
+import GraphSelector from '../components/GraphSelector';
 
 class Display extends Component {
 
@@ -123,8 +124,10 @@ class Display extends Component {
                                     )
                                 })
                             }
+
                             <Table data={data[0]} display={this.state.display} language={this.props.language}/>
                         </div>
+                        <GraphSelector display={this.state.display} />
                     </div>
                 </div>
             </div>

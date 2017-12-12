@@ -86,7 +86,6 @@ class Home extends Component {
             return (
                 <div>
                     <TopNav language={this.props.language} openHome={this.openHome}/>
-                    <Contact language={this.props.language}/>
                 </div>
             )
         }

@@ -4,6 +4,12 @@ import Contact from '../components/Contact';
 import { CookiesProvider } from 'react-cookie';
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
+import firstImage from '../images/first.png';
+import secondImage from '../images/second.png';
+import thirdImage from '../images/third.png';
+import fourthImage from '../images/fourth.png';
+import fifthImage from '../images/fifth.png';
+import sixthImage from '../images/sixth.png';
 
 class TopNav extends Component {
 
@@ -27,9 +33,93 @@ class TopNav extends Component {
                                 <i class="fa fa-info"></i>
                             </button>
                             &nbsp;
+                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#questionModal">
+                                <i class="fa fa-question"></i>
+                            </button>
+                            &nbsp;
                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#mailModal">
                                 <i class="fa fa-envelope"></i>
                             </button>
+
+                            <div class="modal fade bd-example-modal-lg" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="questionModal" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Help</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>This is quick help information regarding how this application operates. It gives a quick tutorial on how to select and display data.
+                                                <br/><br/>
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <h5>Selecting a Region Level</h5>
+                                                        <p>A region level can be selected on the left hand side of the app which. Choosing this will then prompt the next option to pop up</p>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <img src={firstImage} width="100%" />
+                                                    </div>
+                                                </div>
+                                                <br/>
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <h5>Selecting a Scenario</h5>
+                                                        <p>After selecting a region, you can then select a scenario collection and then select multiple scenarios. Each scenario will be displayed as a seperate graph, whilst all scenarios will be in one table.</p>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <img src={secondImage} width="100%" />
+                                                    </div>
+                                                </div>
+                                                <br/>
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <h5>Time Period</h5>
+                                                        <p>After selecting your desired scenarios you can then pick your time period. The application will then display the number of empty graphs based on your scenario collection. Once indicators are picked the graphs will populate.</p>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <img src={thirdImage} width="100%" />
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <h5>Indicators and Graphs</h5>
+                                                        <p>Once indicators are chosen on the right hand side, the graph will be populated with data. The grahs are dynamic meaning that you can add and remove indicators and these changes will reflect on the graphs instantly.</p>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <img src={fourthImage} width="100%" />
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <h5>Tables</h5>
+                                                        <p>The information can also be displayed in table form. It gives a break down of the same information, with each indicator being listed as a new row, with each scenarios values displayed in relevant columns.</p>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <img src={fifthImage} width="100%" />
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <h5>Save Information</h5>
+                                                        <p>Each graph and the table can all be saved to a PDF. These PDF's are then downloaded to your computer for future use.</p>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <img src={sixthImage} width="100%" />
+                                                    </div>
+                                                </div>
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="infoModal" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -41,7 +131,7 @@ class TopNav extends Component {
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <Contact language={this.language}/>
+                                            <Contact language={this.props.language}/>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

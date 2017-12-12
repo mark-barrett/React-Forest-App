@@ -102,7 +102,7 @@ class ScenarioSelector extends Component {
                 if(result.id == regionID) {
                     result.scenarioCollections.map(result => {
                         // Put the scenarioID and regionID in split with a dash
-                        filteredScenarios.push(<option key={result.id} value={result.id+"-"+regionID}>{result.name}</option>)
+                        filteredScenarios.push(<option key={result.id} title={result.description} value={result.id+"-"+regionID}>{result.name}</option>)
                     })
                 }
             });

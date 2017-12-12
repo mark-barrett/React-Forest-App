@@ -5,19 +5,19 @@ class Contact extends Component {
     render () {
         return (
             <div className="container">
-                <div className="form-group row">
-                    <label className="col-sm-1 col-form-label">{this.props.language.emailAddress}</label>
-                    <input className="col-sm-4" name="inputEmail" id="inputEmail" placeholder="email@example.com"></input>
-                </div>
-                <div className="form-group row">
-                    <label className="col-sm-1 col-form-label">{this.props.language.emailSubject}</label>
-                    <input className="col-sm-3" name="inputSubject" id="inputSubject"></input>
-                </div>
-                <div className="form-group row">
-                    <label className="col-sm-1 col-form-label">{this.props.language.emailBody}</label>
-                    <textarea className="col-sm-5" name="inputText" id="inputText" rows="6"></textarea>
-                </div>
-                <button id="button2" className="btn btn-second" onClick={sendEmail}>{this.props.language.send}</button>
+                    <div className="form-group">
+                        <label for="email">{this.props.language.emailAddress}</label>
+                        <input className="form-control" name="inputEmail" id="inputEmail" placeholder="email@example.com"/>
+                    </div>
+                    <div className="form-group">
+                        <label for="subject">{this.props.language.emailSubject}</label>
+                        <input className="form-control" name="inputSubject" id="inputSubject"/>
+                    </div>
+                    <div className="form-group">
+                        <label for="body">{this.props.language.emailBody}</label>
+                        <textarea className="form-control" name="inputText" id="inputText" rows="6"></textarea>
+                    </div>
+                <button id="button2" className="btn btn-success btn-block" onClick={sendEmail}>{this.props.language.send}</button>
             </div>                
         )
     }
