@@ -6,11 +6,6 @@ import Home from './components/Home';
 import language from './Language';
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
-
-import Graphs from './components/Graphs';
-
-
-
 import Graphs from './components/Graphs';
 
 class App extends Component {
