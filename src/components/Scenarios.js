@@ -38,7 +38,7 @@ class Scenarios extends Component {
             result.map(element => {
                 // Iterate over the scenarios and put them into an array
                 this.setState({scenariosList: element.scenarios.map(item => {
-                    return <option key={item.id} value={item.id}>{item.description}</option>;
+                    return <option key={item.id} value={item.id} title={item.description}>{item.name}</option>;
                 })})
 
                 // Iterate over the time periods and put them into an array

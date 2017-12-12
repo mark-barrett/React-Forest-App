@@ -15,14 +15,20 @@ class Display extends Component {
             dataSet: [],
             parsedData: [],
             html: [],
-            display: "graph"
+            display: "graph",
+            graphType: ""
         }
 
         this.changeDisplay = this.changeDisplay.bind(this);
+        this.changeGraph = this.changeGraph.bind(this);
     }
 
     changeDisplay(event) {
         this.setState({display: event.target.value});
+    }
+
+    changeGraph(graph) {
+        this.setState({graphType:graph});
     }
 
     render () {
@@ -40,7 +46,7 @@ class Display extends Component {
                 // Loop through the dataSet looking for the scenario name using index 0 because only 1 scenario collection can be chosen
                 for (let i = 0; i < this.props.dataSet[0].scenarios.length; i++) {
                     if (this.props.dataSet[0].scenarios[i].id == scenario) {
-                        scenarioName = this.props.dataSet[0].scenarios[i].description;
+                        scenarioName = this.props.dataSet[0].scenarios[i].name;
                     }
                     // Loop through the dataSet and using the indicatorIDs find the indicator descriptions and make a new object for each
                     for (let j = 0; j < this.props.dataSet[0].indicatorCategories.length; j++) {
@@ -120,14 +126,15 @@ class Display extends Component {
                             {
                                 data[0].map(element => {
                                     return (
-                                        <Graph data={element} number_of_graphs={data[0].length} display={this.state.display}/>
+                                        <Graph data={element} number_of_graphs={data[0].length} display={this.state.display} graphType={this.state.graphType}/>
                                     )
                                 })
                             }
 
                             <Table data={data[0]} display={this.state.display} language={this.props.language}/>
                         </div>
-                        <GraphSelector display={this.state.display} />
+                        <br/>
+                        <GraphSelector display={this.state.display} changeGraph={this.changeGraph}/>
                     </div>
                 </div>
             </div>
