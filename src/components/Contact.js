@@ -7,7 +7,7 @@ class Contact extends Component {
             <div className="container">
                 <div className="form-group row">
                     <label className="col-sm-2 col-form-label">{this.props.language.emailAddress}</label>
-                    <input className="col-sm-4" name="inputEmail" id="inputEmail" placeholder="email@example.com"></input>
+                    <input className="col-sm-4" name="inputEmail" id="inputEmail" value="metsamittari@luke.fi"></input>
                 </div>
                 <div className="form-group row">
                     <label className="col-sm-2 col-form-label">{this.props.language.emailSubject}</label>

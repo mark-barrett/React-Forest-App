@@ -137,7 +137,7 @@ class ScenarioSelector extends Component {
                             {this.props.language.regionLevel}
                             <div className="form-group">
                                 <select className="form-control" id="regionLevel" onChange={this.getRegions} value={this.state.value}>
-                                    <option value={this.props.language.chooseRegionLevel}>{this.props.language.chooseRegionLevel}</option>
+                                    <option title={this.props.language.chooseRegionLevel} value={this.props.language.chooseRegionLevel}>{this.props.language.chooseRegionLevel}</option>
                                     {this.state.regionLevels}
                                 </select>
                             </div>
@@ -252,6 +252,10 @@ class ScenarioSelector extends Component {
             )
         }
     }
+}
+
+function displayInformation() {
+    document.getElementById("Text").setAttribute("style", "display:block");
 }
 
 export default ScenarioSelector
