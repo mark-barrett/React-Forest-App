@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import language from '../Language';
+import language from '../Language'
 
 class Contact extends Component {
     render () {
@@ -24,6 +24,7 @@ class Contact extends Component {
 }
 
 function sendEmail(){
+    // Email address, subject & text are put into variables, which are put together in mailto
     var email = document.getElementById('inputEmail').value;
     var emailSubject = document.getElementById("inputSubject").value;
     var emailBody = document.getElementById('inputText').value;

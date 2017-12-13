@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import TopNav from './TopNav';
-import ScenarioSelector from './ScenarioSelector';
-import IndicatorCategories from '../components/IndicatorCategories';
-import Contact from './Contact';
-import language from '../Language';
-import Display from '../components/Display';
+import TopNav from './TopNav'
+import ScenarioSelector from './ScenarioSelector'
+import IndicatorCategories from '../components/IndicatorCategories'
+import Display from '../components/Display'
 
 class Home extends Component {
 
@@ -69,7 +67,7 @@ class Home extends Component {
     }
 
     render() {
-        if (this.state.displayIndicators === false) {
+        if (this.state.displayIndicators == false) {
             return (
                 <div>
                     <TopNav language={this.props.language} openMail={this.openMail} changeLanguage={this.props.changeLanguage} />
@@ -96,7 +94,7 @@ class Home extends Component {
                             <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet} />
                         </div>
                         <div className="col-md-6">
-                            <Display indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName} dataSet={this.state.dataSet} timeString={this.state.timePeriodString} language={this.props.language}/>
+                            <Display language={this.props.language} indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName} dataSet={this.state.dataSet} timeString={this.state.timePeriodString} />
                         </div>
                         <div className="col-md-3">
                             <IndicatorCategories language={this.props.language} indicatorCategories={this.state.indicatorCategories} indicatorsChanged={this.indicatorsChanged} />

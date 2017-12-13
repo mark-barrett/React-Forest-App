@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import './App.css';
-import Welcome from './components/Welcome';
-import Contact from './components/Contact';
-import Home from './components/Home';
-import language from './Language';
-import { instanceOf } from 'prop-types';
-import { withCookies, Cookies } from 'react-cookie';
-import Graphs from './components/Graphs';
+import React, { Component } from 'react'
+import './App.css'
+import Welcome from './components/Welcome'
+import Contact from './components/Contact'
+import Home from './components/Home'
+import language from './Language'
+import { instanceOf } from 'prop-types'
+import { withCookies, Cookies } from 'react-cookie'
 
 class App extends Component {
 
@@ -27,8 +26,12 @@ class App extends Component {
         // Bind the openApp function to have this
         this.openApp = this.openApp.bind(this);
 
-        // Instantiate the language class for use on the app.
-        this.language = new language(cookies.get('language'));
+        if (cookies.get('language') == null) {
+            this.language = new language("Finnish");
+        }
+        else {
+            this.language = new language(cookies.get('language'));
+        }
 
         this.changeLanguage = this.changeLanguage.bind(this);
     }
