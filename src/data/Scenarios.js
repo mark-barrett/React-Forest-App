@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function getScenarioCollection(scenarioCollectionID, regionID, language) {
     var config = {
-        headers: { 'Accept-Language': language === "English" ? 'en' : 'fi' }
+        headers: { 'Accept-Language': language == "English" ? 'en' : 'fi' }
     }
     return new Promise((resolve, reject) => {
         // Make HTTP GET call to the regionLevels endpoint

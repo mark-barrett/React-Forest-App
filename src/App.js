@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import './App.css';
-import Welcome from './components/Welcome';
-import Contact from './components/Contact';
-import Home from './components/Home';
-import language from './Language';
-import { instanceOf } from 'prop-types';
-import { withCookies, Cookies } from 'react-cookie';
-import Graphs from './components/Graphs';
+import React, { Component } from 'react'
+import './App.css'
+import Welcome from './components/Welcome'
+import Contact from './components/Contact'
+import Home from './components/Home'
+import language from './Language'
+import { instanceOf } from 'prop-types'
+import { withCookies, Cookies } from 'react-cookie'
 
 class App extends Component {
 
@@ -34,7 +33,7 @@ class App extends Component {
     }
 
     openApp() {
-        if (this.state.appIsOpen === false) {
+        if (this.state.appIsOpen == false) {
             this.setState({ appIsOpen: true })
         }
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Graph from '../components/Graph'
 import Table from '../components/Table';
-import GraphSelector from '../components/GraphSelector';
+import GraphSelector from '../components/Graphselector';
 
 class Display extends Component {
 
@@ -80,7 +80,7 @@ class Display extends Component {
                 // Remove duplicates
                 for(let x=0; x<indicators.length; x++) {
                     for(let y=0; y<indicators.length; y++) {
-                        if(indicators[x].id === indicators[y].id) {
+                        if(indicators[x].id == indicators[y].id) {
                             indicators.splice(y, 1);
                         }
                     }

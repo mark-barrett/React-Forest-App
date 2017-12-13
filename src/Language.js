@@ -7,7 +7,7 @@ class Language {
         // Create empty object of phrases
         let phrases = {}
         // If English is chosen when Language object is created then populate with English
-        if (this.setLanguage === "English") {
+        if (this.setLanguage == "English") {
 
             phrases = {
                 appName: "Forest Indicator App",
@@ -65,7 +65,7 @@ class Language {
             }
         }
         // If Finnish is chosen when Language is created populate with English
-        else if (this.setLanguage === "Finnish") {
+        else if (this.setLanguage == "Finnish") {
             phrases = {
                 appName: "Metsämittari Sovellus",
                 team: "Tiimi: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen & Joshua O'Neill",
@@ -97,28 +97,28 @@ class Language {
                 pdfText: "Tämän PDF -tiedoston tuotti React Metsämittari Sovellus by Tiimi: Mark Barrett, Valtteri Juutilainen, Tuomo Kinnunen & Joshua O'Neill",
                 contact: "Ota yhteyttä",
                 close: "Sulje",
-                information: "Informaatiota",
+                information: "Tietoa",
                 here: "täältä",
                 help: "Apua",
-                helpText1: "Tässä on pikainen ohje siitä, miten tämä sovellus toimii. Se kertoo, kuinka valitaan ja näytetään dataa.",
+                helpText1: "Tämä on pikainen ohje siitä, miten tämä sovellus toimii. Se kertoo kuinka valitaan ja näytetään dataa.",
                 helpText2: "Aluetason valitseminen",
                 helpText3: "Aluetaso voidaan valita sovelluksen vasemmalta reunalta, jonka jälkeen seuraava vaihtoehto ilmestyy.",
                 helpText4: "Skenaarioiden valinta",
-                helpText5: "Alueen valinnan jälkeen voit valita skenaariokokoelman ja sen jälkeen voit valita skenaariokokoelman sisältämiä skenaarioita (CTRL + Hiiren klikkauksella voi valita useampia kohteita). Jokainen skenaario näytetään omalla kaaviollaan, ellei dataa näytetä taulukossa.",
+                helpText5: "Alueen valinnan jälkeen voit valita skenaariokokoelman, jonka jälkeen voit valita skenaariokokoelman sisältämiä skenaarioita (CTRL + Hiiren klikkauksella voi valita useampia kohteita). Jokainen skenaario näytetään omalla kaaviollaan, ellei dataa näytetä taulukkomuodossa.",
                 helpText6: "Aikajaksot",
                 helpText7: "Skenaarioiden valitsemisen jälkeen voit valita halutun aikajakson. Sitten sovellus näyttää tyhjiä kaavioita, jotka täyttyvät datalla kun valitset indikaattorit.",
                 helpText8: "Indikaattorit ja kaaviot",
-                helpText9: "Kun valitset indikaattoreita, kaaviot täyttyvät datalla. Kaaviot ovat dynaamisia, eli voit lisätä ja poistaa indikaattoreita jolloin muutokset näkyvät kaaviolla heti.",
+                helpText9: "Kun valitset indikaattoreita, kaaviot täyttyvät datalla. Kaaviot ovat dynaamisia, eli voit lisätä ja poistaa indikaattoreita jolloin muutokset näkyvät kaaviolla välittömästi.",
                 helpText10: "Taulukot",
-                helpText11: "Informaatiota voidaan myös näyttää taulukkomuodossa. Jokainen indikaattori on omalla rivillään ja skenaariot ovat omissa sarakkeissaan",
-                helpText12: "Tallenna informaatiota",
+                helpText11: "Dataa voidaan myös näyttää taulukkomuodossa. Jokainen indikaattori on omalla rivillään ja skenaariot ovat omissa sarakkeissaan.",
+                helpText12: "Tallenna kaavioita",
                 helpText13: "Kaikki kaaviot voidaan tallentaa koneellesi PDF-muodossa.",
-                chartType: "Kaavion tyyppi",
+                chartType: "Kaavion tyyppi: ",
                 pieChart: "Ympyrädiagrammi",
-                lineChart: "Linjan Kaaviosta",
+                lineChart: "Linjakaavio",
                 columnChart: "Pylväskaavio",
                 barChart: "Pylväsdiagrammi",
-                polarChart: "Polaarinen Kaavio"
+                polarChart: "Polaarinen kaavio"
             }
         }
 
