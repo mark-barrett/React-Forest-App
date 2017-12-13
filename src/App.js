@@ -26,14 +26,18 @@ class App extends Component {
         // Bind the openApp function to have this
         this.openApp = this.openApp.bind(this);
 
-        // Instantiate the language class for use on the app.
-        this.language = new language(cookies.get('language'));
+        if (cookies.get('language') == null) {
+            this.language = new language("Finnish");
+        }
+        else {
+            this.language = new language(cookies.get('language'));
+        }
 
         this.changeLanguage = this.changeLanguage.bind(this);
     }
 
     openApp() {
-        if (this.state.appIsOpen == false) {
+        if (this.state.appIsOpen === false) {
             this.setState({ appIsOpen: true })
         }
     }

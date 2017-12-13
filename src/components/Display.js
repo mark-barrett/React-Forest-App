@@ -115,10 +115,10 @@ class Display extends Component {
                     <div class="card-body">
                     <div class="text-center"><h4>{this.props.regionName} - {this.props.timeString}</h4></div>
                     <div className="float-right">
-                    Display As: &nbsp;
+                    {this.props.language.displayAs}
                         <select class="custom-select" onChange={this.changeDisplay}>
-                            <option selected value="graph">Graph</option>
-                            <option value="table">Table</option>
+                            <option selected value="graph">{this.props.language.graph}</option>
+                            <option value="table">{this.props.language.table}</option>
                         </select>
                     </div>
                     <br/><br/>
