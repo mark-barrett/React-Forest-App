@@ -96,7 +96,7 @@ class Home extends Component {
                             <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet} />
                         </div>
                         <div className="col-md-6">
-                            <Display indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName} dataSet={this.state.dataSet} timeString={this.state.timePeriodString} />
+                            <Display indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName} dataSet={this.state.dataSet} timeString={this.state.timePeriodString} language={this.props.language}/>
                         </div>
                         <div className="col-md-3">
                             <IndicatorCategories language={this.props.language} indicatorCategories={this.state.indicatorCategories} indicatorsChanged={this.indicatorsChanged} />
