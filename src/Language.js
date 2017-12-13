@@ -117,7 +117,7 @@ class Language {
                 pieChart: "Ympyrädiagrammi",
                 lineChart: "Linjakaavio",
                 columnChart: "Pylväskaavio",
-                barChart: "Pylväsdiagrammi",
+                barChart: "Palkkikaavio",
                 polarChart: "Polaarinen kaavio"
             }
         }
