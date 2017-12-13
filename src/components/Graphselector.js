@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import language from '../Language'
 
 class GraphSelector extends Component {
 
@@ -13,16 +14,16 @@ class GraphSelector extends Component {
     }
 
     render () {
-        if (this.props.display === 'graph') {
+        if (this.props.display == 'graph') {
             return (
                 <div className="text-center">
-                Chart Type:
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" onClick={this.changeChart} value="pie" class="btn btn-success">Pie Chart</button>
-                        <button type="button" onClick={this.changeChart} value="line" class="btn btn-success">Line Chart</button>
-                        <button type="button" onClick={this.changeChart} value="column" class="btn btn-success">Column Chart</button>
-                        <button type="button" onClick={this.changeChart} value="bar" class="btn btn-success">Bar Chart</button>
-                        <button type="button" onClick={this.changeChart} value="polar" class="btn btn-success">Polar Chart</button>
+                {this.props.language.chartType}
+                    <div className="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" onClick={this.changeChart} value="pie" className="btn btn-success">{this.props.language.pieChart}</button>
+                        <button type="button" onClick={this.changeChart} value="line" className="btn btn-success">{this.props.language.lineChart}</button>
+                        <button type="button" onClick={this.changeChart} value="column" className="btn btn-success">{this.props.language.columnChart}</button>
+                        <button type="button" onClick={this.changeChart} value="bar" className="btn btn-success">{this.props.language.barChart}</button>
+                        <button type="button" onClick={this.changeChart} value="polar" className="btn btn-success">{this.props.language.polarChart}</button>
                     </div>
                 </div>
             )
