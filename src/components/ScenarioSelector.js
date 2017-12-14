@@ -119,9 +119,14 @@ class ScenarioSelector extends Component {
     }
 
     displayScenarios(event) {
-        // Set the scenario collection id to pass into the scenarios component
-        this.setState({ scenarioRegionSelection: event.target.value});
-        this.setState({displayScenarios: true});
+        if (event.target.value == this.props.language.chooseScenarioCollection) {
+            this.setState({ displayScenarios: false });
+        }
+        else {
+            // Set the scenario collection id to pass into the scenarios component
+            this.setState({ scenarioRegionSelection: event.target.value });
+            this.setState({ displayScenarios: true });
+        }
     }
 
     displayIndicators(indicatorCategories) {

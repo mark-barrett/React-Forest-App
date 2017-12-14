@@ -26,35 +26,52 @@ class Scenarios extends Component {
     }
 
     componentDidMount() {
+        console.log("Mounted: "+this.state.scenarioCollectionID);
+        this.getScenarios(this.state.scenarioCollectionID);
+    }
+
+    getScenarios(scenarioCollectionID) {
         const { cookies } = this.props;
 
         let tempList = []
         // Get all scenarios based on the state passed in as a prop
-        scenarios.getScenarioCollection(this.state.scenarioCollectionID, this.state.regionID, cookies.get('language'))
-        .then(result => {
-            // Send this result set to the home component
-            this.props.getDataSet(result);
-            // Take this result and iterate over it
-            result.map(element => {
-                // Iterate over the scenarios and put them into an array
-                this.setState({scenariosList: element.scenarios.map(item => {
-                    return <option key={item.id} title={item.description} value={item.id}>{item.name}</option>;
-                })})
+        scenarios.getScenarioCollection(scenarioCollectionID, this.state.regionID, cookies.get('language'))
+            .then(result => {
+                // Send this result set to the home component
+                this.props.getDataSet(result);
+                // Take this result and iterate over it
+                result.map(element => {
+                    // Iterate over the scenarios and put them into an array
+                    this.setState({
+                        scenariosList: element.scenarios.map(item => {
+                            return <option key={item.id} title={item.description} value={item.id}>{item.name}</option>;
+                        })
+                    })
 
-                // Iterate over the time periods and put them into an array
-                this.setState({timePeriods: element.timePeriods.map(item => {
-                    return <option key={item.id} title={item.yearStart + "-" + item.yearEnd} value={item.id}>{item.yearStart}-{item.yearEnd}</option>;
-                })})
-                
-                this.setState({displayTimePeriods: true});
+                    // Iterate over the time periods and put them into an array
+                    this.setState({
+                        timePeriods: element.timePeriods.map(item => {
+                            return <option key={item.id} title={item.yearStart + "-" + item.yearEnd} value={item.id}>{item.yearStart}-{item.yearEnd}</option>;
+                        })
+                    })
 
-                // Iterate over the indicatorCategories
-                this.setState({indicatorCategories: element.indicatorCategories});
+                    this.setState({ displayTimePeriods: true });
 
-                // Tell the scenario component to display the indicators on the right.
-                this.props.displayIndicators(element.indicatorCategories);
-            })
-        });
+                    // Iterate over the indicatorCategories
+                    this.setState({ indicatorCategories: element.indicatorCategories });
+
+                    // Tell the scenario component to display the indicators on the right.
+                    this.props.displayIndicators(element.indicatorCategories);
+                })
+            });
+    }
+
+    componentDidUpdate() {
+        // If what is set in the dropdown does not match, then we have reset it
+        if (this.state.scenarioCollectionID != this.props.scenarioRegion.substr(0, this.props.scenarioRegion.indexOf('-'))) {
+            this.getScenarios(this.props.scenarioRegion.substr(0, this.props.scenarioRegion.indexOf('-')));
+            this.setState({ scenarioCollectionID: this.props.scenarioRegion.substr(0, this.props.scenarioRegion.indexOf('-')) });
+        }
     }
 
     scenarioChanged(event) {

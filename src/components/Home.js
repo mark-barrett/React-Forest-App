@@ -45,7 +45,6 @@ class Home extends Component {
     }
 
     timesChanged(timePeriodIDs) {
-        console.log("time Changed");
         this.setState({ timePeriodIDs: timePeriodIDs });
         this.setState({ timePeriodIsSet: true });
         this.setState({ displayIndicators: true });
