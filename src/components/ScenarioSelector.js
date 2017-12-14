@@ -99,7 +99,6 @@ class ScenarioSelector extends Component {
                 }
             })
 
-            console.log(this.state.scenarioCollections);
             // Filter the scenarioCollections so that only the ones that are matching exist
             this.state.scenarioCollections.map(result => {
                 if(result.id == regionID) {
@@ -117,7 +116,7 @@ class ScenarioSelector extends Component {
         }
         else {
             this.setState({ displayScenarios: false });
-            this.setState({scenarioCollections: []});
+            this.setState({filteredScenarios: []});
             this.setState({displayScenarioCollections: false});
         }
 
