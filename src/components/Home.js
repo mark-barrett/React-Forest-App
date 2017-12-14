@@ -31,7 +31,6 @@ class Home extends Component {
 
     displayIndicators(_indicatorCategories) {
         // Display the indicators
-        this.setState({ displayIndicators: true });
         this.setState({ indicatorCategories: _indicatorCategories });
     }
 
@@ -49,6 +48,7 @@ class Home extends Component {
         console.log("time Changed");
         this.setState({ timePeriodIDs: timePeriodIDs });
         this.setState({ timePeriodIsSet: true });
+        this.setState({ displayIndicators: true });
 
         // Now get the time date so it can be displayed on the next component
         for (let i = 0; i < this.state.dataSet[0].timePeriods.length; i++) {
@@ -75,7 +75,7 @@ class Home extends Component {
 
                     <div className="row">
                         <div className="col-md-3">
-                            <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet} />
+                            <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet}/>
                         </div>
                         <div className="col-md-6">
                         </div>

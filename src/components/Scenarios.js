@@ -51,7 +51,7 @@ class Scenarios extends Component {
                 this.setState({indicatorCategories: element.indicatorCategories});
 
                 // Tell the scenario component to display the indicators on the right.
-                this.props.displayIndicators(this.state.indicatorCategories);
+                this.props.displayIndicators(element.indicatorCategories);
             })
         });
     }

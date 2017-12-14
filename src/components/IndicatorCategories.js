@@ -17,7 +17,6 @@ class IndicatorCategories extends Component {
     }
 
     indicatorChanged(event) {
-        console.log('indicatorChanged');
         /* This gets called everytime an indicator is changed
         We must take the value that has changed append it to the selected list if not there and pass it back
         up to the home component.
@@ -62,8 +61,7 @@ class IndicatorCategories extends Component {
     }
 
     // This will be called when the component is updated
-    componentDidUpdate() {
-        console.log('componentDidUpdate');
+    componentDidMount() {
         // This will be called when the props sent are full.
         // We must ensure that it only gets called once so it doesnt create an infite loop.
         // Extra conditional logic is needed.
@@ -89,6 +87,7 @@ class IndicatorCategories extends Component {
                                 <br/>
                             </div>
                         )
+                        console.log(this.state.options);
                     })
                 });
             });
