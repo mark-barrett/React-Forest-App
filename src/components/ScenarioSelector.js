@@ -14,6 +14,7 @@ class ScenarioSelector extends Component {
             regionLevels: [],
             regions: [],
             scenarioCollections: [],
+            filteredScenarios: [],
             displayRegions: false,
             displayScenarioCollections: false,
             displayScenarios: false,
@@ -85,6 +86,7 @@ class ScenarioSelector extends Component {
     }
 
     getScenarioCollections(event) {
+        console.log(event.target.value);
 
         if(event.target.value != this.props.language.chooseRegion) {
 
@@ -97,6 +99,7 @@ class ScenarioSelector extends Component {
                 }
             })
 
+            console.log(this.state.scenarioCollections);
             // Filter the scenarioCollections so that only the ones that are matching exist
             this.state.scenarioCollections.map(result => {
                 if(result.id == regionID) {
@@ -107,7 +110,9 @@ class ScenarioSelector extends Component {
                 }
             });
 
-            this.setState({scenarioCollections: filteredScenarios});
+            console.log(this.state.scenarioCollections);
+
+            this.setState({filteredScenarios: filteredScenarios});
             this.setState({displayScenarioCollections: true});
         }
         else {
@@ -215,7 +220,7 @@ class ScenarioSelector extends Component {
                             <div className="form-group">
                                 <select className="form-control" id="scenarioCollections" onChange={this.displayScenarios} value={this.state.value}>
                                 <option>{this.props.language.chooseScenarioCollection}</option>
-                                {this.state.scenarioCollections}
+                                {this.state.filteredScenarios}
                                 </select>
                             </div>
                         </div>
@@ -253,7 +258,7 @@ class ScenarioSelector extends Component {
                             <div className="form-group">
                                 <select className="form-control" id="scenarioCollections" onChange={this.displayScenarios} value={this.state.value}>
                                     <option>{this.props.language.chooseScenarioCollection}</option>
-                                    {this.state.scenarioCollections}
+                                    {this.state.filteredScenarios}
                                 </select>
                             </div>
                             <Scenarios language={this.props.language} scenarioRegion={this.state.scenarioRegionSelection} displayIndicators={this.displayIndicators} scenariosChanged={this.props.scenariosChanged} timesChanged={this.props.timesChanged} getDataSet={this.props.getDataSet}/>
