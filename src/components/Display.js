@@ -13,6 +13,7 @@ class Display extends Component {
             scenarioIDs: [],
             indicatorIDs: [],
             timePeriodIDs: "",
+            timeString: "",
             dataSet: [],
             parsedData: [],
             html: [],
@@ -30,6 +31,26 @@ class Display extends Component {
 
     changeGraph(graph) {
         this.setState({graphType:graph});
+    }
+
+    componentDidMount() {
+        for (let i = 0; i < this.props.dataSet[0].timePeriods.length; i++) {
+            if (this.props.dataSet[0].timePeriods[i].id == this.props.timePeriodIDs) {
+                if (this.state.timeString != this.props.dataSet[0].timePeriods[i].yearStart + "-" + this.props.dataSet[0].timePeriods[i].yearEnd) {
+                    this.setState({ timeString: this.props.dataSet[0].timePeriods[i].yearStart + "-" + this.props.dataSet[0].timePeriods[i].yearEnd });
+                }
+            }
+        }
+    }
+
+    componentDidUpdate() {
+        for (let i = 0; i < this.props.dataSet[0].timePeriods.length; i++) {
+            if (this.props.dataSet[0].timePeriods[i].id == this.props.timePeriodIDs) {
+                if (this.state.timeString != this.props.dataSet[0].timePeriods[i].yearStart + "-" + this.props.dataSet[0].timePeriods[i].yearEnd) {
+                    this.setState({ timeString: this.props.dataSet[0].timePeriods[i].yearStart + "-" + this.props.dataSet[0].timePeriods[i].yearEnd });
+                }
+            }
+        }
     }
 
     render () {
@@ -93,7 +114,7 @@ class Display extends Component {
                     let sum = 0;
 
                     for (let q = 0; q < this.props.dataSet[0].values.length; q++) {
-                        if (this.props.dataSet[0].values[q].indicatorId == i.id && this.props.dataSet[0].values[q].scenarioId == scenario) {
+                        if (this.props.dataSet[0].values[q].indicatorId == i.id && this.props.dataSet[0].values[q].scenarioId == scenario && this.props.dataSet[0].values[q].timePeriodId == this.props.timePeriodIDs) {
                             sum += this.props.dataSet[0].values[q].value;
                         }
                     }
@@ -116,7 +137,7 @@ class Display extends Component {
             <div>
                 <div class="card">
                     <div class="card-body">
-                    <div class="text-center"><h4>{this.props.regionName} - {this.props.timeString}</h4></div>
+                    <div class="text-center"><h4>{this.props.regionName} - {this.state.timeString}</h4></div>
                     <div className="float-right">
                     {this.props.language.displayAs}
                         <select class="custom-select" onChange={this.changeDisplay}>

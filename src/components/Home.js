@@ -49,13 +49,6 @@ class Home extends Component {
         this.setState({ timePeriodIDs: timePeriodIDs });
         this.setState({ timePeriodIsSet: true });
         this.setState({ displayIndicators: true });
-
-        // Now get the time date so it can be displayed on the next component
-        for (let i = 0; i < this.state.dataSet[0].timePeriods.length; i++) {
-            if (this.state.dataSet[0].timePeriods[i].id == this.state.timePeriodIDs) {
-                this.setState({ timePeriodString: this.state.dataSet[0].timePeriods[i].yearStart + "-" + this.state.dataSet[0].timePeriods[i].yearEnd })
-            }
-        }
     }
 
     regionName(_regionName) {
@@ -95,7 +88,7 @@ class Home extends Component {
                             <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet} />
                         </div>
                         <div className="col-md-6">
-                            <Display language={this.props.language} indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName} dataSet={this.state.dataSet} timeString={this.state.timePeriodString} />
+                            <Display language={this.props.language} indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName} dataSet={this.state.dataSet} />
                         </div>
                         <div className="col-md-3">
                             <IndicatorCategories language={this.props.language} indicatorCategories={this.state.indicatorCategories} indicatorsChanged={this.indicatorsChanged} />

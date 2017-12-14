@@ -45,6 +45,7 @@ class Scenarios extends Component {
                 this.setState({timePeriods: element.timePeriods.map(item => {
                     return <option key={item.id} title={item.yearStart + "-" + item.yearEnd} value={item.id}>{item.yearStart}-{item.yearEnd}</option>;
                 })})
+                
                 this.setState({displayTimePeriods: true});
 
                 // Iterate over the indicatorCategories
