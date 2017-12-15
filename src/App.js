@@ -48,6 +48,7 @@ class App extends Component {
         cookies.set('language', event.target.value);
         console.log(this.language = new language(cookies.get('language')));
         this.setState({ language: event.target.value });
+        window.location.reload();
     }
 
     render() {
