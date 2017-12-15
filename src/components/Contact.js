@@ -7,7 +7,7 @@ class Contact extends Component {
             <div className="container">
                     <div className="form-group">
                         <label for="email">{this.props.language.emailAddress}</label>
-                        <input className="form-control" name="inputEmail" id="inputEmail" placeholder="email@example.com"/>
+                        <input className="form-control" name="inputEmail" id="inputEmail" value="metsamittari@luke.fi"/>
                     </div>
                     <div className="form-group">
                         <label for="subject">{this.props.language.emailSubject}</label>
