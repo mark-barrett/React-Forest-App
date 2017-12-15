@@ -124,7 +124,7 @@ class Display extends Component {
                     }
 
                     // Now we have the sum, lets update that particular§indicator with a sum field
-                    indicators[index].sum = sum;
+                    indicators[index].sum = Number((sum).toFixed(2));
                 })
 
                 return {
@@ -139,12 +139,12 @@ class Display extends Component {
         return (
 
             <div>
-                <div class="card">
-                    <div class="card-body">
-                    <div class="text-center"><h4>{this.props.regionName} - {this.state.timeString}</h4></div>
+                <div className="card">
+                    <div className="card-body">
+                    <div className="text-center"><h4>{this.props.regionName} - {this.state.timeString}</h4></div>
                     <div className="float-right">
                     {this.props.language.displayAs}
-                        <select class="custom-select" onChange={this.changeDisplay}>
+                        <select className="custom-select" onChange={this.changeDisplay}>
                             <option selected value="graph">{this.props.language.graph}</option>
                             <option value="table">{this.props.language.table}</option>
                         </select>
@@ -161,7 +161,7 @@ class Display extends Component {
                             }
 
                             <Table data={data[0]} display={this.state.display} language={this.props.language}/>
-
+                            <br/>
                             <a href={"http://mela2.metla.fi/mela/_tupatest15/tupa/index.php?lk=" + this.props.linkObj.lk + "&ko=" + this.props.linkObj.ko + "&ty=" + this.props.linkObj.ty + "&ka=" + this.props.linkObj.ka + "&mj=" + this.props.linkObj.mj} className="btn btn-success btn-block">View on MELATupa</a>
                         </div>
                         <br/>

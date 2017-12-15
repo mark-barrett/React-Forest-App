@@ -77,8 +77,8 @@ class Table extends Component {
                             </table>
                             <br/>
                         </div>
-                        <div class="text-center">
-                            <button className="btn btn-success" onClick={this.savePDF}><i class="fa fa-floppy-o" aria-hidden="true"></i> Save Table to PDF</button>
+                        <div className="text-center">
+                            <button className="btn btn-success" onClick={this.savePDF}><i className="fa fa-floppy-o" aria-hidden="true"></i> Save Table to PDF</button>
                         </div>
                     </div>
                 )

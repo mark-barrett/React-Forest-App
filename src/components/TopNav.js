@@ -33,25 +33,25 @@ class TopNav extends Component {
                                 <i className="fa fa-info"></i>
                             </button>
                             &nbsp;
-                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#questionModal">
-                                <i class="fa fa-question"></i>
+                            <button type="button" className="btn btn-light" data-toggle="modal" data-target="#questionModal">
+                                <i className="fa fa-question"></i>
                             </button>
                             &nbsp;
-                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#mailModal">
-                                <i class="fa fa-envelope"></i>
+                            <button type="button" className="btn btn-light" data-toggle="modal" data-target="#mailModal">
+                                <i className="fa fa-envelope"></i>
                             </button>
 
-                            <div class="modal fade bd-example-modal-lg" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="questionModal" aria-hidden="true">
-                                <div class="modal-dialog modal-lg" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">{this.props.language.help}</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <div className="modal fade bd-example-modal-lg" id="questionModal" tabIndex="-1" role="dialog" aria-labelledby="questionModal" aria-hidden="true">
+                                <div className="modal-dialog modal-lg" role="document">
+                                    <div className="modal-content">
+                                        <div className="modal-header">
+                                            <h5 className="modal-title" id="exampleModalLabel">{this.props.language.help}</h5>
+                                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body">
-                                            <p>{this.props.language.helpText1}
+                                        <div className="modal-body">
+                                            <p>{this.props.language.helpText1}</p>
                                                 <br/><br/>
                                                 <div className="row">
                                                     <div className="col-md-6">
@@ -112,29 +112,28 @@ class TopNav extends Component {
                                                         <img src={sixthImage} width="100%" />
                                                     </div>
                                                 </div>
-                                            </p>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
+                                        <div className="modal-footer">
+                                            <button type="button" className="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="infoModal" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">{this.props.language.contact}</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <div className="modal fade" id="mailModal" tabIndex="-1" role="dialog" aria-labelledby="infoModal" aria-hidden="true">
+                                <div className="modal-dialog" role="document">
+                                    <div className="modal-content">
+                                        <div className="modal-header">
+                                            <h5 className="modal-title" id="exampleModalLabel">{this.props.language.contact}</h5>
+                                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div className="modal-body">
                                             <Contact language={this.props.language}/>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
+                                        <div className="modal-footer">
+                                            <button type="button" className="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
                                         </div>
                                     </div>
                                 </div>

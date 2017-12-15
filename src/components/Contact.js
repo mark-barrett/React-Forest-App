@@ -6,15 +6,15 @@ class Contact extends Component {
         return (
             <div className="container">
                     <div className="form-group">
-                        <label for="email">{this.props.language.emailAddress}</label>
+                        <label htmlFor="email">{this.props.language.emailAddress}</label>
                         <input className="form-control" name="inputEmail" id="inputEmail" placeholder="email@example.com"/>
                     </div>
                     <div className="form-group">
-                        <label for="subject">{this.props.language.emailSubject}</label>
+                    <label htmlFor="subject">{this.props.language.emailSubject}</label>
                         <input className="form-control" name="inputSubject" id="inputSubject"/>
                     </div>
                     <div className="form-group">
-                        <label for="body">{this.props.language.emailBody}</label>
+                    <label htmlFor="body">{this.props.language.emailBody}</label>
                         <textarea className="form-control" name="inputText" id="inputText" rows="6"></textarea>
                     </div>
                 <button id="button2" className="btn btn-success btn-block" onClick={sendEmail}>{this.props.language.send}</button>
