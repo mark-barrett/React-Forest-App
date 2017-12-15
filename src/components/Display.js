@@ -162,7 +162,7 @@ class Display extends Component {
 
                             <Table data={data[0]} display={this.state.display} language={this.props.language}/>
                             <br/>
-                            <a href={"http://mela2.metla.fi/mela/_tupatest15/tupa/index.php?lk=" + this.props.linkObj.lk + "&ko=" + this.props.linkObj.ko + "&ty=" + this.props.linkObj.ty + "&ka=" + this.props.linkObj.ka + "&mj=" + this.props.linkObj.mj} className="btn btn-success btn-block">View on MELATupa</a>
+                            <a target="_blank" href={"http://mela2.metla.fi/mela/_tupatest15/tupa/index.php?lk=" + this.props.linkObj.lk + "&ko=" + this.props.linkObj.ko + "&ty=" + this.props.linkObj.ty + "&ka=" + this.props.linkObj.ka + "&mj=" + this.props.linkObj.mj} className="btn btn-success btn-block">View on MELATupa</a>
                         </div>
                         <br/>
                     </div>
