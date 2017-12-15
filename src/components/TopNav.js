@@ -142,8 +142,8 @@ class TopNav extends Component {
                             <form className="form-inline my-2 my-lg-0" onChange={this.props.changeLanguage}>
                                 <div className="form-group">
                                         {language === "English"
-                                            ? <select className="form-control" id="exampleFormControlSelect1"><option value="English" selected>English</option> <option value="Finnish">Finnish</option></select>
-                                            : <select className="form-control" id="exampleFormControlSelect1"><option value="English">English</option> <option value="Finnish" selected>Finnish</option></select>
+                                            ? <select className="form-control" id="exampleFormControlSelect1"><option value="English" selected>English &nbsp;</option> <option value="Finnish">Finnish</option></select>
+                                            : <select className="form-control" id="exampleFormControlSelect1"><option value="English">Englanti</option> <option value="Finnish" selected>Suomi</option></select>
                                         }
                                 </div>
                             </form>
