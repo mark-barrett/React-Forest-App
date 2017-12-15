@@ -20,7 +20,6 @@ class Display extends Component {
             display: "graph",
             graphType: ""
         }
-
         this.changeDisplay = this.changeDisplay.bind(this);
         this.changeGraph = this.changeGraph.bind(this);
     }
@@ -51,9 +50,14 @@ class Display extends Component {
                 }
             }
         }
+
     }
 
     render () {
+
+        console.log("Time Period:"+this.props.timePeriodIDs);
+        console.log("IDs of Scenarios:"+this.props.scenarioIDs);
+        console.log("Indicators:"+this.props.indicatorIDs);
 
         // Constructing the dataObject
         let data = [
@@ -146,6 +150,7 @@ class Display extends Component {
                         </select>
                     </div>
                     <br/><br/>
+                        <GraphSelector display={this.state.display} changeGraph={this.changeGraph} language={this.props.language} /><br/>
                         <div className="row">
                             {
                                 data[0].map(element => {
@@ -156,9 +161,10 @@ class Display extends Component {
                             }
 
                             <Table data={data[0]} display={this.state.display} language={this.props.language}/>
+
+                            <a href={"http://mela2.metla.fi/mela/_tupatest15/tupa/index.php?lk=" + this.props.linkObj.lk + "&ko=" + this.props.linkObj.ko + "&ty=" + this.props.linkObj.ty + "&ka=" + this.props.linkObj.ka + "&mj=" + this.props.linkObj.mj} className="btn btn-success btn-block">View on MELATupa</a>
                         </div>
                         <br/>
-                        <GraphSelector display={this.state.display} changeGraph={this.changeGraph} language={this.props.language}/>
                     </div>
                 </div>
             </div>

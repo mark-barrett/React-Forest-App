@@ -17,7 +17,6 @@ class GraphSelector extends Component {
         if (this.props.display == 'graph') {
             return (
                 <div className="text-center">
-                {this.props.language.chartType}
                     <div className="btn-group" role="group" aria-label="Basic example">
                         <button type="button" onClick={this.changeChart} value="pie" className="btn btn-success">{this.props.language.pieChart}</button>
                         <button type="button" onClick={this.changeChart} value="line" className="btn btn-success">{this.props.language.lineChart}</button>

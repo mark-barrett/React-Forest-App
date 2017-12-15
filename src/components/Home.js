@@ -15,10 +15,13 @@ class Home extends Component {
             indicatorIDs: [],
             scenarioIDs: [],
             timePeriodIDs: "",
+            regionID: "",
             regionName: "",
             dataSet: [],
             timePeriodString: "",
-            timePeriodIsSet: false
+            timePeriodIsSet: false,
+            testValue: "",
+            linkObj: {}
         }
 
         this.displayIndicators = this.displayIndicators.bind(this);
@@ -27,6 +30,8 @@ class Home extends Component {
         this.timesChanged = this.timesChanged.bind(this);
         this.regionName = this.regionName.bind(this);
         this.getDataSet = this.getDataSet.bind(this);
+        this.test = this.test.bind(this);
+        this.scenarioCollection = this.scenarioCollection.bind(this);
     }
 
     displayIndicators(_indicatorCategories) {
@@ -50,8 +55,19 @@ class Home extends Component {
         this.setState({ displayIndicators: true });
     }
 
-    regionName(_regionName) {
-        this.setState({ regionName: _regionName });
+    test(scenarioCollectionID) {
+        if(scenarioCollectionID != this.state.testValue) {
+            this.setState({testValue: scenarioCollectionID});
+        }
+    }
+
+    scenarioCollection(scenarioCollectionID) {
+        this.setState({scenarioCollectionID: scenarioCollectionID});
+    }
+    
+    regionName(_regionName, regionID) {
+        this.setState({ regionName: _regionName,
+        regionID: regionID});
     }
 
     getDataSet(_dataSet) {
@@ -67,7 +83,7 @@ class Home extends Component {
 
                     <div className="row">
                         <div className="col-md-3">
-                            <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet}/>
+                            <ScenarioSelector test={this.test} language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet} scenarioCollection={this.scenarioCollection}/>
                         </div>
                         <div className="col-md-6">
                         </div>
@@ -79,15 +95,23 @@ class Home extends Component {
             )
         }
         else {
+            let obj = {
+                'lk': this.state.scenarioCollectionID,
+                'ko': this.state.regionID,
+                'ty': this.state.scenarioIDs,
+                'ka': this.state.timePeriodIDs,
+                'mj': this.state.indicatorIDs
+            }
+
             return (
                 <div>
                     <TopNav language={this.props.language} openMail={this.openMail} changeLanguage={this.props.changeLanguage} />
                     <div className="row">
                         <div className="col-md-3">
-                            <ScenarioSelector language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet} />
+                            <ScenarioSelector test={this.test} language={this.props.language} displayIndicators={this.displayIndicators} scenariosChanged={this.scenariosChanged} timesChanged={this.timesChanged} regionName={this.regionName} getDataSet={this.getDataSet} scenarioCollection={this.scenarioCollection}/>
                         </div>
                         <div className="col-md-6">
-                            <Display language={this.props.language} indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName} dataSet={this.state.dataSet} />
+                            <Display linkObj={obj} language={this.props.language} indicatorIDs={this.state.indicatorIDs} scenarioIDs={this.state.scenarioIDs} timePeriodIDs={this.state.timePeriodIDs} regionName={this.state.regionName} dataSet={this.state.dataSet} />
                         </div>
                         <div className="col-md-3">
                             <IndicatorCategories language={this.props.language} indicatorCategories={this.state.indicatorCategories} indicatorsChanged={this.indicatorsChanged} />

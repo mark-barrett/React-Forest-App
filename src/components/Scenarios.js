@@ -23,6 +23,7 @@ class Scenarios extends Component {
         }
 
         this.scenarioChanged = this.scenarioChanged.bind(this);
+        this.getScenarios = this.getScenarios.bind(this);
     }
 
     componentDidMount() {
@@ -64,6 +65,7 @@ class Scenarios extends Component {
                     this.props.displayIndicators(element.indicatorCategories);
                 })
             });
+            this.props.test(scenarioCollectionID);
     }
 
     componentDidUpdate() {
