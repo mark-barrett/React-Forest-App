@@ -69,7 +69,8 @@ class Language {
                 table: "Table",
                 viewOnMelatupa: "View on MELATupa",
                 indicators: "Indicators",
-                savePDF: "Save as PDF"
+                savePDF: "Save as PDF",
+                emailSendInfo: "Pressing the Send button will open your device's default email application and fill it with the text you've written here"
             }
         }
         // If Finnish is chosen when Language is created populate with English
@@ -134,7 +135,8 @@ class Language {
                 table: "Taulukko",
                 viewOnMelatupa: "Näytä MelaTUPAssa",
                 indicators: "Indikaattorit",
-                savePDF: "Tallena PDF-muodossa"
+                savePDF: "Tallena PDF-muodossa",
+                emailSendInfo: "Kun painat Lähetä-nappia, laitteesi sähköpostiapplikaatio avautuu ja se täyttyy kirjoittamallasi tekstillä"
             }
         }
 
