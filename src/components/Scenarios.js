@@ -27,7 +27,6 @@ class Scenarios extends Component {
     }
 
     componentDidMount() {
-        console.log("Mounted: "+this.state.scenarioCollectionID);
         this.getScenarios(this.state.scenarioCollectionID);
     }
 

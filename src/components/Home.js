@@ -21,6 +21,7 @@ class Home extends Component {
             timePeriodString: "",
             timePeriodIsSet: false,
             testValue: "",
+            tester: "",
             linkObj: {}
         }
 
@@ -63,6 +64,7 @@ class Home extends Component {
 
     scenarioCollection(scenarioCollectionID) {
         this.setState({scenarioCollectionID: scenarioCollectionID});
+        this.setState({tester: "Hello"});
     }
     
     regionName(_regionName, regionID) {
@@ -102,6 +104,7 @@ class Home extends Component {
                 'ka': this.state.timePeriodIDs,
                 'mj': this.state.indicatorIDs
             }
+        
 
             return (
                 <div>

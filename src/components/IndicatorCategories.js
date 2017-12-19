@@ -14,6 +14,7 @@ class IndicatorCategories extends Component {
 
         // Bind this to the indicatorChanged method
         this.indicatorChanged = this.indicatorChanged.bind(this);
+        this.getIndicators = this.getIndicators.bind(this);
     }
 
     indicatorChanged(event) {
@@ -60,16 +61,17 @@ class IndicatorCategories extends Component {
         this.props.indicatorsChanged(value);
     }
 
-    // This will be called when the component is updated
-    componentDidMount() {
+    componentDidUpdate() {
+        this.getIndicators();
+    }
+
+    getIndicators() {
+
         // This will be called when the props sent are full.
         // We must ensure that it only gets called once so it doesnt create an infite loop.
         // Extra conditional logic is needed.
-        if(this.props.indicatorCategories.length > 0 && this.state.indicatorsSet === false) {
+        if (this.props.indicatorCategories.length > 0 && this.props.indicatorCategories != this.state.indicatorCategories) {
             // We can now set the states
-
-            // Make boolean true so this only executes once
-            this.setState({indicatorsSet: true})
 
 
             // Update the states of the indicatorCategories
@@ -84,14 +86,18 @@ class IndicatorCategories extends Component {
                                         return <option value={item.id} title={item.description} key={item.id}>{item.name}</option>
                                     })}
                                 </select>
-                                <br/>
+                                <br />
                             </div>
                         )
-                        console.log(this.state.options);
                     })
                 });
             });
         }
+
+    }
+    // This will be called when the component is updated
+    componentDidMount() {
+        this.getIndicators();
     }
 
     render () {

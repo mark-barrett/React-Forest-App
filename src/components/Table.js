@@ -80,6 +80,7 @@ class Table extends Component {
                         <div className="text-center">
                             <button className="btn btn-success" onClick={this.savePDF}><i className="fa fa-floppy-o" aria-hidden="true"></i> Save Table to PDF</button>
                         </div>
+                        <br/>
                     </div>
                 )
             }

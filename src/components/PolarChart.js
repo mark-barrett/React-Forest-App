@@ -21,7 +21,7 @@ class PolarChart extends Component {
             },
 
             title: {
-                text: 'Highcharts Polar Chart'
+                text: this.props.scenario
             },
 
             pane: {
@@ -70,8 +70,15 @@ class PolarChart extends Component {
                 data: [1, 8, 2, 7, 3, 6, 4, 5]
             }]
         }
+
+        const divStyle = {
+            minWidth: 310,
+            maxWidth: 400,
+            height: 400,
+            margin: 'auto'
+        }
         return (
-            <div >
+            <div style={divStyle}>
                 <ReactHighcharts config={this.config}></ReactHighcharts>
             </div>
         )

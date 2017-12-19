@@ -18,7 +18,7 @@ class Display extends Component {
             parsedData: [],
             html: [],
             display: "graph",
-            graphType: ""
+            graphType: "bar"
         }
         this.changeDisplay = this.changeDisplay.bind(this);
         this.changeGraph = this.changeGraph.bind(this);
@@ -54,10 +54,6 @@ class Display extends Component {
     }
 
     render () {
-
-        console.log("Time Period:"+this.props.timePeriodIDs);
-        console.log("IDs of Scenarios:"+this.props.scenarioIDs);
-        console.log("Indicators:"+this.props.indicatorIDs);
 
         // Constructing the dataObject
         let data = [
