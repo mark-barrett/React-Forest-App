@@ -66,7 +66,8 @@ class Language {
                 polarChart: "Polar Chart",
                 displayAs: "Display as: ",
                 graph: "Graph",
-                table: "Table"
+                table: "Table",
+                viewOnMelatupa: "View on MELATupa"
             }
         }
         // If Finnish is chosen when Language is created populate with English
@@ -128,7 +129,8 @@ class Language {
                 polarChart: "Polaarinen kaavio",
                 displayAs: "Näytä: ",
                 graph: "Kaavio",
-                table: "Taulukko"
+                table: "Taulukko",
+                viewOnMelatupa: "Näytä MelaTUPAssa"
             }
         }
 
