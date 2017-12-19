@@ -40,7 +40,7 @@ class Table extends Component {
                             <table className="table">
                                 <thead className="thead bg-success text-white">
                                     <tr>
-                                        <th>Indicators</th>
+                                        <th>{this.props.language.indicators}</th>
                                         {
                                             this.props.data.map(element => {
                                                 return (
@@ -78,7 +78,7 @@ class Table extends Component {
                             <br/>
                         </div>
                         <div className="text-center">
-                            <button className="btn btn-success" onClick={this.savePDF}><i className="fa fa-floppy-o" aria-hidden="true"></i> Save Table to PDF</button>
+                            <button className="btn btn-success" onClick={this.savePDF}><i className="fa fa-floppy-o" aria-hidden="true"></i>{this.props.language.savePDF}</button>
                         </div>
                         <br/>
                     </div>

@@ -56,6 +56,8 @@ class Language {
                 helpText11: "The information can also be displayed in table form. It gives a break down of the same information, with each indicator being listed as a new row, with each scenarios values displayed in relevant columns.",
                 helpText12: "Save Information",
                 helpText13: "Each graph and the table can all be saved to a PDF. These PDF's are then downloaded to your computer for future use.",
+                helpText14: "Display descriptions",
+                helpText15: "To see the descriptions of selections, you simply need to hover your mouse over them.",
                 chartType: "Chart Type",
                 pieChart: "Pie Chart",
                 lineChart: "Line Chart",
@@ -64,7 +66,11 @@ class Language {
                 polarChart: "Polar Chart",
                 displayAs: "Display as: ",
                 graph: "Graph",
-                table: "Table"
+                table: "Table",
+                viewOnMelatupa: "View on MELATupa",
+                indicators: "Indicators",
+                savePDF: "Save as PDF",
+                emailSendInfo: "Pressing the Send button will open your device's default email application and fill it with the text you've written here"
             }
         }
         // If Finnish is chosen when Language is created populate with English
@@ -116,6 +122,8 @@ class Language {
                 helpText11: "Dataa voidaan myös näyttää taulukkomuodossa. Jokainen indikaattori on omalla rivillään ja skenaariot ovat omissa sarakkeissaan.",
                 helpText12: "Tallenna kaavioita",
                 helpText13: "Kaikki kaaviot voidaan tallentaa koneellesi PDF-muodossa.",
+                helpText14: "Kuvausten näyttäminen",
+                helpText15: "Valintojen kuvaukset voi nähdä siirtämällä hiiri kohteen päälle, jolloin kuvaus ilmestyy.",
                 chartType: "Kaavion tyyppi: ",
                 pieChart: "Ympyrädiagrammi",
                 lineChart: "Linjakaavio",
@@ -124,7 +132,11 @@ class Language {
                 polarChart: "Polaarinen kaavio",
                 displayAs: "Näytä: ",
                 graph: "Kaavio",
-                table: "Taulukko"
+                table: "Taulukko",
+                viewOnMelatupa: "Näytä MelaTUPAssa",
+                indicators: "Indikaattorit",
+                savePDF: "Tallena PDF-muodossa",
+                emailSendInfo: "Kun painat Lähetä-nappia, laitteesi sähköpostiapplikaatio avautuu ja se täyttyy kirjoittamallasi tekstillä"
             }
         }
 

@@ -17,7 +17,7 @@ class Contact extends Component {
                     <label htmlFor="body">{this.props.language.emailBody}</label>
                         <textarea className="form-control" name="inputText" id="inputText" rows="6"></textarea>
                     </div>
-                <button id="button2" className="btn btn-success btn-block" onClick={sendEmail}>{this.props.language.send}</button>
+                <button id="button2" className="btn btn-success btn-block" title={this.props.language.emailSendInfo} onClick={sendEmail}>{this.props.language.send}</button>
             </div>                
         )
     }
