@@ -67,7 +67,9 @@ class Language {
                 displayAs: "Display as: ",
                 graph: "Graph",
                 table: "Table",
-                viewOnMelatupa: "View on MELATupa"
+                viewOnMelatupa: "View on MELATupa",
+                indicators: "Indicators",
+                savePDF: "Save as PDF"
             }
         }
         // If Finnish is chosen when Language is created populate with English
@@ -130,7 +132,9 @@ class Language {
                 displayAs: "Näytä: ",
                 graph: "Kaavio",
                 table: "Taulukko",
-                viewOnMelatupa: "Näytä MelaTUPAssa"
+                viewOnMelatupa: "Näytä MelaTUPAssa",
+                indicators: "Indikaattorit",
+                savePDF: "Tallena PDF-muodossa"
             }
         }
 
