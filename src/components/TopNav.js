@@ -112,6 +112,13 @@ class TopNav extends Component {
                                                         <img src={sixthImage} width="100%" />
                                                     </div>
                                                 </div>
+                                                <br />
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <h5>{this.props.language.helpText14}</h5>
+                                                        <p>{this.props.language.helpText15}</p>
+                                                    </div>
+                                                </div>
                                         </div>
                                         <div className="modal-footer">
                                             <button type="button" className="btn btn-secondary" data-dismiss="modal">{this.props.language.close}</button>
