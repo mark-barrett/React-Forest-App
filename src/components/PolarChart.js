@@ -1,20 +1,27 @@
 import React, { Component } from 'react'
-const ReactHighcharts = require('react-highcharts')
-const ReactHighchartsexporting = require('highcharts-exporting')
+var ReactHighcharts = require('react-highcharts');
+var HighchartsMore = require('highcharts-more');
+HighchartsMore(ReactHighcharts.Highcharts);
 
 class PolarChart extends Component {
 
     constructor(props) {
         super(props);
-
-        global.Highcharts = require('highcharts');
-        global.HighchartsMore = require('highcharts-more');
-        require('highcharts/modules/exporting')(global.Highcharts);
-
         this.data = this.props.data;
     }
 
     render() {
+        let graph_data = [];
+        this.props.data.indicators.map(element => {
+            let new_obj = {
+                type: 'column',
+                name: element.name,
+                data: [element.sum],
+                pointPlacement: 'between'
+            }
+            graph_data.push(new_obj);
+        })
+
         this.config = {
             chart: {
                 polar: true
@@ -44,10 +51,15 @@ class PolarChart extends Component {
                 min: 0
             },
 
+            pane: {
+                size: '80%',
+                startAngle: 22.5
+            },
+            
             plotOptions: {
                 series: {
                     pointStart: 0,
-                    pointInterval: 45
+                    pointInterval: 80
                 },
                 column: {
                     pointPadding: 0,
@@ -55,20 +67,7 @@ class PolarChart extends Component {
                 }
             },
 
-            series: [{
-                type: 'column',
-                name: 'Column',
-                data: [8, 7, 6, 5, 4, 3, 2, 1],
-                pointPlacement: 'between'
-            }, {
-                type: 'line',
-                name: 'Line',
-                data: [1, 2, 3, 4, 5, 6, 7, 8]
-            }, {
-                type: 'area',
-                name: 'Area',
-                data: [1, 8, 2, 7, 3, 6, 4, 5]
-            }]
+            series: graph_data
         }
 
         const divStyle = {
